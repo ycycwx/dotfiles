@@ -17,13 +17,13 @@ brew "ghc"
 brew "cabal-install"
 brew "glib"
 brew "cloc"
+brew "nghttp2"
+brew "curl", link: true
 brew "colordiff"
 brew "coreutils"
 brew "cowsay"
 brew "cscope"
 brew "ctags"
-brew "nghttp2"
-brew "curl", link: true
 brew "deno"
 brew "diff-so-fancy"
 brew "docker", link: false

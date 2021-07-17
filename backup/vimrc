@@ -81,9 +81,6 @@ nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
-" rename
-nmap <leader>rn <Plug>(coc-rename)
-
 " set guifont="fira code:h14"
 " set guifont="JetBrains Mono:h14"
 
@@ -243,22 +240,24 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Use K to show documentation in preview window
+" Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
   else
-    call CocAction('doHover')
+    execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
 
 " Highlight symbol under cursor on CursorHold
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Remap for rename current word
-nmap <F2> <Plug>(coc-rename)
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
 xmap <leader>f  <Plug>(coc-format-selected)
@@ -301,7 +300,8 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline^=%{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}
 
 " Using CocList
 " Show all diagnostics
@@ -349,3 +349,23 @@ noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand
 noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+" coc-highlight
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" coc-git
+" navigate chunks of current buffer
+nmap [g <Plug>(coc-git-prevchunk)
+nmap ]g <Plug>(coc-git-nextchunk)
+" navigate conflicts of current buffer
+nmap [c <Plug>(coc-git-prevconflict)
+nmap ]c <Plug>(coc-git-nextconflict)
+" show chunk diff at current position
+nmap gs <Plug>(coc-git-chunkinfo)
+" show commit contains current position
+nmap gc <Plug>(coc-git-commit)
+" create text object for git chunks
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
