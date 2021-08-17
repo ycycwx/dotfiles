@@ -30,6 +30,9 @@ Plug 'rakr/vim-one'
 
 Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
+" rescript
+Plug 'rescript-lang/vim-rescript'
+
 " Initialize plugin system
 call plug#end()
 
@@ -369,3 +372,12 @@ omap ig <Plug>(coc-git-chunk-inner)
 xmap ig <Plug>(coc-git-chunk-inner)
 omap ag <Plug>(coc-git-chunk-outer)
 xmap ag <Plug>(coc-git-chunk-outer)
+
+" vim-rescript
+" Note that <buffer> allows us to use different commands with the same keybindings depending
+" on the filetype. This is useful if to override your e.g. ALE bindings while working on
+" ReScript projects.
+autocmd FileType rescript nnoremap <silent> <buffer> <localleader>r :RescriptFormat<CR>
+autocmd FileType rescript nnoremap <silent> <buffer> <localleader>t :RescriptTypeHint<CR>
+autocmd FileType rescript nnoremap <silent> <buffer> <localleader>b :RescriptBuild<CR>
+autocmd FileType rescript nnoremap <silent> <buffer> gd :RescriptJumpToDefinition<CR>
