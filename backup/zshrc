@@ -147,6 +147,9 @@ export PATH=$PATH:$ICODING_HOME
 # deno
 export PATH=$HOME/.deno/bin:$PATH
 
+# doom emacs
+export PATH=$HOME/.emacs.d/bin:$PATH
+
 # JAVA
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
 

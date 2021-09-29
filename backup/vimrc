@@ -12,6 +12,7 @@ Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 Plug 'Yggdroot/LeaderF', {'do': ':LeaderfInstallCExtension'}
 Plug 'scrooloose/nerdcommenter'
 
+" Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-surround'
 Plug 'liuchengxu/eleline.vim'
 
@@ -168,7 +169,7 @@ let g:NERDSpaceDelims = 1
 "
 " Fugitive
 " Blame on current line
-nmap <silent> <leader>b :Gblame<cr>
+nmap <silent> <leader>b :Git blame<cr>
 " Blame on all selected lines in visual mode
 " vmap <silent> <leader>b :Gblame<cr>
 " Git status
@@ -381,3 +382,6 @@ autocmd FileType rescript nnoremap <silent> <buffer> <localleader>r :RescriptFor
 autocmd FileType rescript nnoremap <silent> <buffer> <localleader>t :RescriptTypeHint<CR>
 autocmd FileType rescript nnoremap <silent> <buffer> <localleader>b :RescriptBuild<CR>
 autocmd FileType rescript nnoremap <silent> <buffer> gd :RescriptJumpToDefinition<CR>
+
+" rainbow-brackets
+" let g:rainbow_active = 1 "0 if you want to enable it later via :RainbowToggle
