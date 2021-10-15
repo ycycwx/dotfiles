@@ -21,3 +21,6 @@ cp $HOME/.tmux.conf $BACKUP/tmux.conf
 
 # git
 cp -r $HOME/.gitconfig $BACKUP/gitconfig
+
+# doom emacs
+cp -r $HOME/.doom.d/ $BACKUP/doom.d/
