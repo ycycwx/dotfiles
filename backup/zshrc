@@ -113,7 +113,7 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 # - bash$ exit
 # - $ _
 function p {
-    export ALL_PROXY=socks5://127.0.0.1:7890
+    export ALL_PROXY=socks5://127.0.0.1:58906
 
     eval "$@"
 
@@ -153,6 +153,9 @@ export PATH=$HOME/.emacs.d/bin:$PATH
 # JAVA
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home
 
+# rust
+export PATH=$HOME/.cargo/bin:$PATH
+
 function check {
     fecs "$@" --rule --reporter=baidu
 }
@@ -164,3 +167,6 @@ function gcheck {
 # tabtab source for electron-forge package
 # uninstall by removing these lines or running `tabtab uninstall electron-forge`
 [[ -f /Users/baidu/workspace/project/source/products/icarus/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/baidu/workspace/project/source/products/icarus/node_modules/tabtab/.completions/electron-forge.zsh
+
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"

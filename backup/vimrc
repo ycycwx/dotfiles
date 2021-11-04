@@ -25,6 +25,7 @@ Plug 'mileszs/ack.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'olimorris/onedarkpro.nvim'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'rakr/vim-one'
@@ -33,6 +34,12 @@ Plug 'HerringtonDarkholme/yats.vim' " TS Syntax
 
 " rescript
 Plug 'rescript-lang/vim-rescript'
+
+" toml
+Plug 'cespare/vim-toml'
+
+" rust
+" Plug 'rust-lang/rust.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -155,9 +162,12 @@ set shiftwidth=4
 " always uses spaces instead of tab characters
 set expandtab
 
-colorscheme gruvbox
+set t_Co=256
+set termguicolors
+" colorscheme gruvbox
+" colorscheme onedarkpro
 " colorscheme onedark
-" colorscheme molokai
+colorscheme molokai
 " colorscheme monokai
 " colorscheme one
 
