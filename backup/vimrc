@@ -41,6 +41,9 @@ Plug 'cespare/vim-toml'
 " rust
 " Plug 'rust-lang/rust.vim'
 
+" github copilot
+Plug 'github/copilot.vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -94,7 +97,6 @@ vnoremap <leader>P "+P
 
 " set guifont="fira code:h14"
 " set guifont="JetBrains Mono:h14"
-
 
 " nerdtree
 " open NERDTree automatically
@@ -165,9 +167,9 @@ set expandtab
 set t_Co=256
 set termguicolors
 " colorscheme gruvbox
-" colorscheme onedarkpro
+colorscheme onedarkpro
 " colorscheme onedark
-colorscheme molokai
+" colorscheme molokai
 " colorscheme monokai
 " colorscheme one
 
@@ -198,11 +200,13 @@ nmap <silent> <leader>gca :Gcommit -a<cr>
 nmap <silent> <leader>gcf :Gcommit -a --amend<cr>
 
 " coc config
+" TODO: replace eslint8 after pr merged
+" \ 'coc-eslint', 
 let g:coc_global_extensions = [
   \ 'coc-snippets',
   \ 'coc-pairs',
   \ 'coc-tsserver',
-  \ 'coc-eslint', 
+  \ 'coc-eslint8',
   \ 'coc-prettier', 
   \ 'coc-json', 
   \ ]

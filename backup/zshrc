@@ -51,7 +51,7 @@ ZSH_THEME="ys"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # per-directory-history
-plugins=(alias-finder autojump brew cabal colored-man-pages command-not-found copydir copyfile cp deno docker docker-compose docker-machine fd git gitfast git-flow gitignore github gatsby zsh-syntax-highlighting zsh-autosuggestions shell-proxy sudo tmux torrent command-not-found npm pip osx gulp grunt copybuffer bower node svn screen history emacs mosh sublime jsontools python react-native ruby torrent web-search httpie yarn last-working-dir colorize fzf fzf-tab ripgrep)
+plugins=(alias-finder autojump brew cabal colored-man-pages command-not-found copydir copyfile cp deno docker docker-compose docker-machine fd git gitfast git-flow gitignore github gatsby zsh-syntax-highlighting zsh-autosuggestions shell-proxy sudo tmux torrent command-not-found npm pip macos gulp grunt copybuffer bower node svn screen history emacs mosh sublime jsontools python react-native ruby torrent web-search httpie yarn last-working-dir colorize fzf fzf-tab ripgrep)
 
 # User configuration
 
@@ -113,7 +113,8 @@ alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
 # - bash$ exit
 # - $ _
 function p {
-    export ALL_PROXY=socks5://127.0.0.1:58906
+    # @see ~/.config/clash/config.yaml
+    export ALL_PROXY=socks5://127.0.0.1:7890
 
     eval "$@"
 
