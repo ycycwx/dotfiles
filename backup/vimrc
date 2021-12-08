@@ -167,10 +167,10 @@ set expandtab
 set t_Co=256
 set termguicolors
 " colorscheme gruvbox
-colorscheme onedarkpro
+" colorscheme onedarkpro
 " colorscheme onedark
 " colorscheme molokai
-" colorscheme monokai
+colorscheme monokai
 " colorscheme one
 
 " nerdcommenter

@@ -32,7 +32,7 @@ brew "diff-so-fancy"
 brew "docker", link: false
 brew "docutils"
 brew "editorconfig"
-brew "unbound"
+brew "unbound", restart_service: true
 brew "gnutls"
 brew "nghttp2"
 brew "emacs", restart_service: true
@@ -77,7 +77,7 @@ brew "vapoursynth"
 brew "mpv", link: false
 brew "n", link: false
 brew "neovim"
-brew "nginx"
+brew "nginx", restart_service: true
 brew "nmap"
 brew "node", link: false
 brew "ocaml"
@@ -85,7 +85,7 @@ brew "opam"
 brew "p7zip"
 brew "pandoc"
 brew "perl"
-brew "privoxy"
+brew "privoxy", restart_service: true
 brew "proxychains-ng"
 brew "python@2", link: false
 brew "python@3.8"

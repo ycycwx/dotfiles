@@ -26,3 +26,6 @@ cp -r $HOME/.gitconfig $BACKUP/gitconfig
 
 # doom emacs
 cp -r $HOME/.doom.d/ $BACKUP/doom.d/
+
+# alacritty
+cp -r $HOME/.config/alacritty/alacritty.yml $BACKUP/alacritty/
