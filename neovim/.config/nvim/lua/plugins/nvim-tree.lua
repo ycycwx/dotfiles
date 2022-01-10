@@ -13,6 +13,8 @@
 --- https://github.com/kyazdani42/nvim-tree.lua#setup
 --- See: `help NvimTree`
 local g = vim.g
+local map = vim.api.nvim_set_keymap
+local default_opts = { noremap = true, silent = true }
 
 g.nvim_tree_quit_on_open = 0
 g.nvim_tree_indent_markers = 1
