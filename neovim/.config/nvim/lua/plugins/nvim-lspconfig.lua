@@ -125,4 +125,4 @@ for _, lsp in ipairs(servers) do
 end
 
 -- eslint
--- vim.cmd [[autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.vue,*.svelte EslintFixAll]]
+vim.cmd [[autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.mjs,*.vue,*.svelte EslintFixAll]]

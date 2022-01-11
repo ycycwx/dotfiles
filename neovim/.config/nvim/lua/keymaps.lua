@@ -48,6 +48,3 @@ map("n", "<C-n>", "*", default_opts)
 -----------------------------------------------------------
 -- open terminal
 map("n", "<C-t>", ":Term<CR>", { noremap = true })
-
--- Vista tag-viewer
-map("n", "<C-m>", ":Vista!!<CR>", default_opts) -- open/close
