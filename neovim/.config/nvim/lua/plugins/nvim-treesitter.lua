@@ -5,10 +5,18 @@
 -- Plugin: nvim-treesitter
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup({
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ensure_installed = "maintained",
-  ensure_installed = {"html", "css", "vim", "lua", "javascript", "typescript", "tsx"},
+  ensure_installed = {
+    'html',
+    'css',
+    'vim',
+    'lua',
+    'javascript',
+    'typescript',
+    'tsx',
+  },
 
   -- Install languages synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -31,11 +39,10 @@ require'nvim-treesitter.configs'.setup {
       node_incremental = '<CR>',
       node_decremental = '<BS>',
       scope_incremental = '<TAB>',
-    }
+    },
   },
 
   indent = {
-    enable = true
-  }
-}
-
+    enable = true,
+  },
+})

@@ -10,87 +10,87 @@
 --- https://github.com/brainfucksec/neovim-lua#readme
 
 local cmd = vim.cmd
-cmd [[packadd packer.nvim]]
+cmd([[packadd packer.nvim]])
 
-local packer = require "packer"
+local packer = require('packer')
 
 -- Add packages
 return packer.startup(function()
-  use "wbthomason/packer.nvim" -- packer can manage itself
+  use('wbthomason/packer.nvim') -- packer can manage itself
 
   -- file explorer
-  use "kyazdani42/nvim-tree.lua"
+  use('kyazdani42/nvim-tree.lua')
 
   -- indent line
-  use "lukas-reineke/indent-blankline.nvim"
+  use('lukas-reineke/indent-blankline.nvim')
 
   -- autopair
-  use {
-    "windwp/nvim-autopairs",
+  use({
+    'windwp/nvim-autopairs',
     config = function()
-      require("nvim-autopairs").setup()
+      require('nvim-autopairs').setup()
     end,
-  }
+  })
 
   -- icons
-  use "kyazdani42/nvim-web-devicons"
+  use('kyazdani42/nvim-web-devicons')
 
   -- treesitter interface
-  use "nvim-treesitter/nvim-treesitter"
+  use('nvim-treesitter/nvim-treesitter')
 
   -- colorschemes
-  use "tanvirtin/monokai.nvim"
+  use('tanvirtin/monokai.nvim')
 
-  use { "rose-pine/neovim", as = "rose-pine" }
+  use({ 'rose-pine/neovim', as = 'rose-pine' })
 
   -- LSP
-  use "neovim/nvim-lspconfig"
+  use('neovim/nvim-lspconfig')
 
   -- null-ls
-  use "jose-elias-alvarez/null-ls.nvim"
+  use('jose-elias-alvarez/null-ls.nvim')
 
   -- autocomplete
-  use {
-    "hrsh7th/nvim-cmp",
+  use({
+    'hrsh7th/nvim-cmp',
     requires = {
-      "L3MON4D3/LuaSnip",
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-buffer",
-      "saadparwaiz1/cmp_luasnip",
+      'L3MON4D3/LuaSnip',
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-path',
+      'hrsh7th/cmp-buffer',
+      'saadparwaiz1/cmp_luasnip',
     },
-  }
+  })
 
   -- statusline
-  use {
-    "famiu/feline.nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
-  }
+  use({
+    'famiu/feline.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
+  })
 
   -- git labels
-  use {
-    "lewis6991/gitsigns.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
+  use({
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require("gitsigns").setup()
+      require('gitsigns').setup()
     end,
-  }
+  })
 
   -- dashboard
-  use {
-    "goolord/alpha-nvim",
-    requires = { "kyazdani42/nvim-web-devicons" },
+  use({
+    'goolord/alpha-nvim',
+    requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      require("alpha").setup(require("alpha.themes.dashboard").opts)
+      require('alpha').setup(require('alpha.themes.dashboard').opts)
     end,
-  }
+  })
 
   -- copilot
-  use "github/copilot.vim"
+  use('github/copilot.vim')
 
   -- telescope
-  use {
-    "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  }
+  use({
+    'nvim-telescope/telescope.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } },
+  })
 end)

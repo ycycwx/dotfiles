@@ -30,10 +30,10 @@ g.nvim_tree_show_icons = {
 }
 
 g.nvim_tree_icons = {
-  default = "‣ ",
+  default = '‣ ',
 }
 
-require("nvim-tree").setup {
+require('nvim-tree').setup({
   open_on_setup = true,
   update_cwd = true,
   update_focused_file = {
@@ -46,16 +46,16 @@ require("nvim-tree").setup {
   },
   filters = {
     dotfiles = true,
-    custom = { ".git", "node_modules", ".cache", ".bin" },
+    custom = { '.git', 'node_modules', '.cache', '.bin' },
   },
   git = {
     enable = true,
     ignore = true,
   },
-}
+})
 
 -- nvim-tree
 -- map('n', '<C-n>', ':NvimTreeToggle<CR>', default_opts)       -- open/close
-map("n", "<leader><leader>", ":NvimTreeToggle<CR>", default_opts) -- open/close
-map("n", "<leader>r", ":NvimTreeRefresh<CR>", default_opts) -- refresh
-map("n", "<leader>n", ":NvimTreeFindFile<CR>", default_opts) -- search file
+map('n', '<leader><leader>', ':NvimTreeToggle<CR>', default_opts) -- open/close
+map('n', '<leader>r', ':NvimTreeRefresh<CR>', default_opts) -- refresh
+map('n', '<leader>n', ':NvimTreeFindFile<CR>', default_opts) -- search file

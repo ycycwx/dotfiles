@@ -5,10 +5,10 @@
 -- Plugin: nvim-cmp
 -- https://github.com/hrsh7th/nvim-cmpa
 
-local cmp = require "cmp"
-local luasnip = require "luasnip"
+local cmp = require('cmp')
+local luasnip = require('luasnip')
 
-cmp.setup {
+cmp.setup({
   -- load snippet support
   snippet = {
     expand = function(args)
@@ -24,19 +24,19 @@ cmp.setup {
 
   -- key mapping
   mapping = {
-    ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm {
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm({
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
-    },
+    }),
 
     -- Tab mapping
-    ["<Tab>"] = function(fallback)
+    ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expand_or_jumpable() then
@@ -44,15 +44,15 @@ cmp.setup {
       else
         -- work with copilot
         -- @see https://github.com/hrsh7th/nvim-cmp/issues/459#issuecomment-957140674
-        local copilot_keys = vim.fn["copilot#Accept"]()
-        if copilot_keys ~= "" then
-          vim.api.nvim_feedkeys(copilot_keys, "i", true)
+        local copilot_keys = vim.fn['copilot#Accept']()
+        if copilot_keys ~= '' then
+          vim.api.nvim_feedkeys(copilot_keys, 'i', true)
         else
           fallback()
         end
       end
     end,
-    ["<S-Tab>"] = function(fallback)
+    ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
       elseif luasnip.jumpable(-1) then
@@ -65,9 +65,9 @@ cmp.setup {
 
   -- load sources, see: https://github.com/topics/nvim-cmp
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "path" },
-    { name = "buffer" },
+    { name = 'nvim_lsp' },
+    { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'buffer' },
   },
-}
+})
