@@ -46,6 +46,9 @@ return packer.startup(function()
   -- LSP
   use "neovim/nvim-lspconfig"
 
+  -- null-ls
+  use "jose-elias-alvarez/null-ls.nvim"
+
   -- autocomplete
   use {
     "hrsh7th/nvim-cmp",

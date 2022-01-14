@@ -27,7 +27,7 @@ capabilities.textDocument.completion.completionItem.resolveSupport = {
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function (client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
@@ -64,6 +64,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
   buf_set_keymap("n", "<leader>qf", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  buf_set_keymap("v", "<leader>f", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 end
 
 --[[
@@ -97,32 +98,33 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 local servers = {
   "bashls",
   "pyright",
-  "clangd",
   "eslint",
   "html",
   "jsonls",
-  "tsserver",
   "rust_analyzer",
 }
-
--- Set settings for language servers below
---
--- tsserver settings
-local ts_settings = function(client)
-  client.resolved_capabilities.document_formatting = false
-  ts_settings(client)
-end
 
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
     capabilities = capabilities,
-    ts_settings = ts_settings,
     flags = {
       debounce_text_changes = 150,
     },
   }
 end
+
+-- Set settings for language servers below
+--
+-- tsserver settings
+nvim_lsp.tsserver.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+  on_attach = function (client)
+    client.resolved_capabilities.document_formatting = false
+    client.resolved_capabilities.document_range_formatting = false
+  end,
+})
 
 -- eslint
 vim.cmd [[autocmd BufWritePre *.ts,*.tsx,*.js,*.jsx,*.mjs,*.vue,*.svelte EslintFixAll]]
