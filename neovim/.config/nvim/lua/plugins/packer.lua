@@ -81,7 +81,7 @@ return packer.startup(function()
     'goolord/alpha-nvim',
     requires = { 'kyazdani42/nvim-web-devicons' },
     config = function()
-      require('alpha').setup(require('alpha.themes.dashboard').opts)
+      require('alpha').setup(require('alpha.themes.dashboard').config)
     end,
   })
 
@@ -93,4 +93,7 @@ return packer.startup(function()
     'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } },
   })
+
+  -- surround
+  use('tpope/vim-surround')
 end)
