@@ -16,7 +16,6 @@ local g = vim.g
 local map = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
 
-g.nvim_tree_indent_markers = 1
 g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 1
 g.nvim_tree_respect_buf_cwd = 1
@@ -38,7 +37,7 @@ require('nvim-tree').setup({
     open_file = {
       enable = true,
       quit_on_open = false,
-    }
+    },
   },
   update_focused_file = {
     enable = true,
@@ -55,6 +54,11 @@ require('nvim-tree').setup({
   git = {
     enable = true,
     ignore = true,
+  },
+  renderer = {
+    indent_markers = {
+      enable = true,
+    },
   },
 })
 
