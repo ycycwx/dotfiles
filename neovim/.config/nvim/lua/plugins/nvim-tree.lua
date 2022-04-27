@@ -35,8 +35,11 @@ require('nvim-tree').setup({
   update_cwd = true,
   actions = {
     open_file = {
-      enable = true,
       quit_on_open = false,
+      resize_window = true,
+      window_picker = {
+        enable = true,
+      },
     },
   },
   update_focused_file = {
@@ -45,7 +48,6 @@ require('nvim-tree').setup({
   },
   view = {
     width = 32,
-    auto_resize = true,
   },
   filters = {
     dotfiles = true,
