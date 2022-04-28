@@ -50,8 +50,8 @@ require('nvim-tree').setup({
     width = 32,
   },
   filters = {
-    dotfiles = true,
-    custom = { '.git', 'node_modules', '.cache', '.bin' },
+    dotfiles = false,
+    custom = { '.git', 'node_modules', '.bin' },
   },
   git = {
     enable = true,
