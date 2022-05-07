@@ -88,7 +88,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(
     'n',
     '<space>e',
-    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>',
+    '<cmd>lua vim.diagnostic.open_float()<CR>',
     opts
   )
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
@@ -96,7 +96,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(
     'n',
     '<space>q',
-    '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>',
+    '<cmd>lua vim.diagnostic.setloclist()<CR>',
     opts
   )
   buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)

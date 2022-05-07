@@ -9,12 +9,6 @@ brew bundle dump --force --file $BACKUP/Brewfile
 mkdir -p $BACKUP/aria2
 cp -r $HOME/.aria2/* $BACKUP/aria2/
 
-# prettier
-cp $HOME/.prettierrc $BACKUP/prettierrc
-
-# vimrc
-cp $HOME/.vimrc $BACKUP/vimrc
-
 # zshrc
 cp $HOME/.zshrc $BACKUP/zshrc
 

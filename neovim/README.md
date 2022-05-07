@@ -3,3 +3,7 @@
 ``` sh
 npm i -g vscode-langservers-extracted
 ```
+
+``` sh
+npm i -g bash-language-server
+```
