@@ -1,15 +1,16 @@
 {
     "name": "dotfiles",
-    "version": "1.0.0",
+    "version": "0.0.0",
+    "private": true,
     "description": "backup dotfiles",
     "scripts": {
-        "sync": "sh sync.sh"
+        "setup": "sh setup.sh"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ycycwx/dotfiles.git"
     },
-    "author": "",
+    "author": "yytcjcy@gmail.com",
     "license": "ISC",
     "bugs": {
         "url": "https://github.com/ycycwx/dotfiles/issues"
