@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/baidu/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -59,7 +59,7 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 export NODE_PATH="/usr/local/lib/node_modules"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-export PATH=$PATH:"/Users/baidu/.npm-packages/bin/"
+export PATH=$PATH:"$HOME/.npm-packages/bin/"
 export PATH=$PATH:/usr/local/opt/go/libexec/bin
 export GOPATH=/usr/local/opt/go/bin
 
@@ -121,7 +121,7 @@ function p {
     unset ALL_PROXY
 }
 
-export NVM_DIR="/Users/baidu/.nvm"
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # facebook/PathPicker
@@ -156,18 +156,6 @@ export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Hom
 
 # rust
 export PATH=$HOME/.cargo/bin:$PATH
-
-function check {
-    fecs "$@" --rule --reporter=baidu
-}
-
-function gcheck {
-    git status -s | cut -c4- | xargs fecs --rule --reporter=baidu
-}
-
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-[[ -f /Users/baidu/workspace/project/source/products/icarus/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /Users/baidu/workspace/project/source/products/icarus/node_modules/tabtab/.completions/electron-forge.zsh
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=8"
