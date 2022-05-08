@@ -41,8 +41,8 @@ map('n', '<C-l>', '<C-w>l', default_opts)
 map('n', '<C-n>', '*', default_opts)
 
 -- continous > or <
-map('v', '<', '<gv', default_opts);
-map('v', '>', '>gv', default_opts);
+map('v', '<', '<gv', default_opts)
+map('v', '>', '>gv', default_opts)
 
 -- close all windows and exit from neovim
 -- map('n', '<leader>q', ':qa!<CR>', default_opts)
