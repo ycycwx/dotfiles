@@ -99,7 +99,6 @@ local on_attach = function(client, bufnr)
     '<cmd>lua vim.diagnostic.setloclist()<CR>',
     opts
   )
-  buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 
   -- custom keybindings
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
@@ -110,17 +109,26 @@ local on_attach = function(client, bufnr)
     opts
   )
   buf_set_keymap(
-    'n',
-    '<leader>f',
-    '<cmd>lua vim.lsp.buf.formatting()<CR>',
-    opts
-  )
-  buf_set_keymap(
     'v',
     '<leader>f',
     '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
     opts
   )
+  if vim.fn.has('nvim-0.8') == 1 then
+    buf_set_keymap(
+      'n',
+      '<leader>f',
+      '<cmd>lua vim.lsp.buf.formatting()<CR>',
+      opts
+    )
+  else
+    buf_set_keymap(
+      'n',
+      '<leader>f',
+      '<cmd>lua vim.lsp.buf.format {async = true}<CR>',
+      opts
+    )
+  end
 end
 
 --[[
@@ -177,8 +185,14 @@ nvim_lsp.tsserver.setup({
   on_attach = on_attach,
   capabilities = capabilities,
   on_attach = function(client)
-    client.server_capabilities.document_formatting = false
-    client.server_capabilities.document_range_formatting = false
+    if vim.fn.has('nvim-0.8') == 1 then
+      client.server_capabilities.documentFormattingProvider = false
+      client.server_capabilities.documentRangeFormattingProvider = false
+    else
+      -- TODO: deprecated when nvim v8.0
+      client.resolved_capabilities.document_formatting = false
+      client.resolved_capabilities.document_range_formatting = false
+    end
   end,
 })
 
