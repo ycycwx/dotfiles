@@ -5,5 +5,5 @@ backup dotfiles
 ## Setup
 
 ```bash
-npm run stow
+npm run setup
 ```
