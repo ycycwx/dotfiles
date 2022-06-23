@@ -86,7 +86,7 @@ return packer.startup(function()
   })
 
   -- copilot
-  use('github/copilot.vim')
+  -- use('github/copilot.vim')
 
   -- telescope
   use({
