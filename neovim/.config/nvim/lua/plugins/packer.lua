@@ -109,4 +109,7 @@ return packer.startup(function()
       })
     end,
   })
+
+  -- wakatime
+  use('wakatime/vim-wakatime')
 end)
