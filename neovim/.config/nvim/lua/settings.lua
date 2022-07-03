@@ -81,6 +81,9 @@ cmd([[
   autocmd FileType xml,html,xhtml,css,scss,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]])
 
+-- mts cts TypeScript
+cmd([[autocmd BufNewFile,BufRead *.mts,*.cts setf typescript]])
+
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
