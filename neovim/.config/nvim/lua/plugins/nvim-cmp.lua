@@ -44,12 +44,13 @@ cmp.setup({
       else
         -- work with copilot
         -- @see https://github.com/hrsh7th/nvim-cmp/issues/459#issuecomment-957140674
-        local copilot_keys = vim.fn['copilot#Accept']()
-        if copilot_keys ~= '' then
-          vim.api.nvim_feedkeys(copilot_keys, 'i', true)
-        else
-          fallback()
-        end
+        -- local copilot_keys = vim.fn['copilot#Accept']()
+        -- if copilot_keys ~= '' then
+        --   vim.api.nvim_feedkeys(copilot_keys, 'i', true)
+        -- else
+        --   fallback()
+        -- end
+        fallback()
       end
     end,
     ['<S-Tab>'] = function(fallback)
