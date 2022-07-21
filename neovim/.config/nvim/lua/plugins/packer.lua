@@ -112,4 +112,12 @@ return packer.startup(function()
 
   -- wakatime
   use('wakatime/vim-wakatime')
+
+  -- Comment
+  use({
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end,
+  })
 end)
