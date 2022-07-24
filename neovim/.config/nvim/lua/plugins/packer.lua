@@ -120,4 +120,7 @@ return packer.startup(function()
       require('Comment').setup()
     end,
   })
+
+  -- editorconfig.nvim
+  use('gpanders/editorconfig.nvim')
 end)
