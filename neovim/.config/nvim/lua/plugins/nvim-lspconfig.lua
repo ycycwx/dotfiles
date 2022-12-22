@@ -183,6 +183,4 @@ nvim_lsp.tsserver.setup({
 })
 
 -- eslint
-vim.cmd([[
-  autocmd BufWritePre *.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,*.vue,*.svelte if exists('EslintFixAll') | execute 'EslintFixAll' | endif
-]])
+vim.cmd([[autocmd BufWritePre *.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,*.vue,*.svelte if exists(':EslintFixAll') | EslintFixAll]])
