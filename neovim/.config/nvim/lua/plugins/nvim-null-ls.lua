@@ -27,14 +27,14 @@ null_ls.setup({
       bufnr,
       'n',
       '<leader>f',
-      '<cmd>lua vim.lsp.buf.formatting()<CR>',
+      '<cmd>lua vim.lsp.buf.format {async = true}()<CR>',
       opts
     )
     vim.api.nvim_buf_set_keymap(
       bufnr,
       'v',
       '<leader>f',
-      '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
+      '<cmd>lua vim.lsp.buf.format()<CR>',
       opts
     )
   end,

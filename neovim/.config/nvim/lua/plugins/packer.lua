@@ -57,8 +57,19 @@ return packer.startup(function()
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-cmdline',
       'saadparwaiz1/cmp_luasnip',
     },
+  })
+
+  -- formatting
+  use('onsails/lspkind.nvim')
+
+  -- cmp-tabnine
+  use({
+    'tzachar/cmp-tabnine',
+    run = './install.sh',
+    requires = 'hrsh7th/nvim-cmp',
   })
 
   -- statusline

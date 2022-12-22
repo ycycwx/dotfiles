@@ -111,24 +111,10 @@ local on_attach = function(client, bufnr)
   buf_set_keymap(
     'v',
     '<leader>f',
-    '<cmd>lua vim.lsp.buf.range_formatting()<CR>',
+    '<cmd>lua vim.lsp.buf.format {async = true}()<CR>',
     opts
   )
-  if vim.fn.has('nvim-0.8') == 1 then
-    buf_set_keymap(
-      'n',
-      '<leader>f',
-      '<cmd>lua vim.lsp.buf.formatting()<CR>',
-      opts
-    )
-  else
-    buf_set_keymap(
-      'n',
-      '<leader>f',
-      '<cmd>lua vim.lsp.buf.format {async = true}<CR>',
-      opts
-    )
-  end
+  buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 
 --[[
@@ -197,6 +183,6 @@ nvim_lsp.tsserver.setup({
 })
 
 -- eslint
-vim.cmd(
-  [[autocmd BufWritePre *.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,*.vue,*.svelte EslintFixAll]]
-)
+vim.cmd([[
+  autocmd BufWritePre *.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,*.vue,*.svelte if exists('EslintFixAll') | execute 'EslintFixAll' | endif
+]])
