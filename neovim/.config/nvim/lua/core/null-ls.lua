@@ -1,10 +1,14 @@
-local null_ls = require('null-ls')
+local ok, ls = pcall(require, 'null-ls')
+if not ok then
+  vim.notify('Could not load null-ls')
+  return
+end
 
 -- register any number of sources simultaneously
-null_ls.setup({
+ls.setup({
   sources = {
-    null_ls.builtins.formatting.prettier,
-    null_ls.builtins.formatting.stylua,
+    ls.builtins.formatting.prettier,
+    ls.builtins.formatting.stylua,
   },
   on_attach = function(client, bufnr)
     local opts = { noremap = true, silent = true }

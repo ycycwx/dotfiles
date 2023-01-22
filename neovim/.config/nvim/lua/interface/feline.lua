@@ -11,6 +11,24 @@
 -- Thanks to ibhagwan for the example to follow:
 --- https://github.com/ibhagwan/nvim-lua
 
+local ok, feline = pcall(require, 'feline')
+if not ok then
+  vim.notify('Could not load feline')
+  return
+end
+
+local ok, lsp = pcall(require, 'feline.providers.lsp')
+if not ok then
+  vim.notify('Could not load lspkind')
+  return
+end
+
+local ok, vi_mode_utils = pcall(require, 'feline.providers.vi_mode')
+if not ok then
+  vim.notify('Could not load lspkind')
+  return
+end
+
 local colors = {
   bg = '#202328', --default: #272a30
   fg = '#f8f8f0',
@@ -40,9 +58,6 @@ local vi_mode_colors = {
   TERM = colors.pink,
   NONE = colors.purple,
 }
-
-local lsp = require('feline.providers.lsp')
-local vi_mode_utils = require('feline.providers.vi_mode')
 
 local lsp_get_diag = function(str)
   local count = vim.lsp, diagnostic.get_count(0, str)
@@ -227,7 +242,7 @@ table.insert(components.active[2], comps.file.line_percentage)
 table.insert(components.active[2], comps.file.position)
 
 -- call feline
-require('feline').setup({
+feline.setup({
   colors = {
     bg = colors.bg,
     fg = colors.fg,

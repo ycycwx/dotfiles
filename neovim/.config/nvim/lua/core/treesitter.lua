@@ -5,7 +5,13 @@
 -- Plugin: nvim-treesitter
 -- https://github.com/nvim-treesitter/nvim-treesitter
 
-require('nvim-treesitter.configs').setup({
+local ok, treesitter = pcall(require, 'nvim-treesitter.configs')
+if not ok then
+  vim.notify('Could not load treesitter')
+  return
+end
+
+treesitter.setup({
   -- One of "all", "maintained" (parsers with maintainers), or a list of languages
   -- ensure_installed = "maintained",
   ensure_installed = {
