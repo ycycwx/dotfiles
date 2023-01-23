@@ -23,10 +23,6 @@ map('', '<down>', '<nop>', { noremap = true })
 map('', '<left>', '<nop>', { noremap = true })
 map('', '<right>', '<nop>', { noremap = true })
 
--- fast saving with <leader> and s
-map('n', '<leader>s', ':w<CR>', default_opts)
-map('i', '<leader>s', '<C-c>:w<CR>', default_opts)
-
 -- C-j C-k
 map('n', '<C-j>', '5j', default_opts)
 map('n', '<C-k>', '5k', default_opts)

@@ -82,7 +82,6 @@ key.setup({
 })
 
 key.register({
-  ['s'] = { name = '+hop' },
   ['['] = { name = '+prev' },
   [']'] = { name = '+next' },
   ['g'] = { name = '+goto' },
@@ -113,6 +112,5 @@ key.register({
     ['d'] = { name = '+debug' },
     ['t'] = { name = '+toggle' },
     ['o'] = { name = '+open' },
-    ['h'] = { name = '+hop' },
   },
 })

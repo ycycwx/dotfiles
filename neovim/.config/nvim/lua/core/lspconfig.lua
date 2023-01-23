@@ -5,6 +5,29 @@
 -- Plugin: nvim-lspconfig
 -- for language server setup see: https://github.com/neovim/nvim-lspconfig
 
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.documentationFormat = {
+  'markdown',
+  'plaintext',
+}
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+capabilities.textDocument.completion.completionItem.preselectSupport = true
+capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
+capabilities.textDocument.completion.completionItem.deprecatedSupport = true
+capabilities.textDocument.completion.completionItem.commitCharactersSupport = true
+capabilities.textDocument.completion.completionItem.tagSupport = {
+  valueSet = { 1 },
+}
+capabilities.textDocument.completion.completionItem.resolveSupport = {
+  properties = {
+    'documentation',
+    'detail',
+    'additionalTextEdits',
+  },
+}
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -28,67 +51,22 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
   -- buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-  buf_set_keymap(
-    'n',
-    '<space>wa',
-    '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',
-    opts
-  )
-  buf_set_keymap(
-    'n',
-    '<space>wr',
-    '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',
-    opts
-  )
-  buf_set_keymap(
-    'n',
-    '<space>wl',
-    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>',
-    opts
-  )
-  buf_set_keymap(
-    'n',
-    '<space>D',
-    '<cmd>lua vim.lsp.buf.type_definition()<CR>',
-    opts
-  )
+  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
+  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
+  buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap(
-    'n',
-    '<space>ca',
-    '<cmd>lua vim.lsp.buf.code_action()<CR>',
-    opts
-  )
+  buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap(
-    'n',
-    '<space>e',
-    '<cmd>lua vim.diagnostic.open_float()<CR>',
-    opts
-  )
+  buf_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-  buf_set_keymap(
-    'n',
-    '<space>q',
-    '<cmd>lua vim.diagnostic.setloclist()<CR>',
-    opts
-  )
+  buf_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
   -- custom keybindings
   buf_set_keymap('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-  buf_set_keymap(
-    'n',
-    '<leader>qf',
-    '<cmd>lua vim.lsp.buf.code_action()<CR>',
-    opts
-  )
-  buf_set_keymap(
-    'v',
-    '<leader>f',
-    '<cmd>lua vim.lsp.buf.format {async = true}()<CR>',
-    opts
-  )
+  buf_set_keymap('n', '<leader>qf', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
+  buf_set_keymap('v', '<leader>f', '<cmd>lua vim.lsp.buf.format {async = true}()<CR>', opts)
   buf_set_keymap('n', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
 end
 
@@ -118,14 +96,14 @@ https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.m
 
 --]]
 
-local ok, lspconfig = pcall(require, 'lspconfig')
-if not ok then
+local lspOk, lspconfig = pcall(require, 'lspconfig')
+if not lspOk then
   vim.notify('Could not load lspconfig')
   return
 end
 
-local ok, mason = pcall(require, 'mason-lspconfig')
-if not ok then
+local masonOk, mason = pcall(require, 'mason-lspconfig')
+if not masonOk then
   vim.notify('Could not load mason-lspconfig')
   return
 end
@@ -163,9 +141,7 @@ end
 
 -- TODO: Use lsp_signature instead
 vim.cmd([[autocmd ColorScheme * highlight NormalFloat guibg=#1f2335]])
-vim.cmd(
-  [[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]]
-)
+vim.cmd([[autocmd ColorScheme * highlight FloatBorder guifg=white guibg=#1f2335]])
 
 local border = {
   { '╭', 'FloatBorder' },
@@ -263,30 +239,6 @@ mason.setup_handlers({
     })
   end,
 })
-
--- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.documentationFormat = {
-  'markdown',
-  'plaintext',
-}
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.preselectSupport = true
-capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-capabilities.textDocument.completion.completionItem.labelDetailsSupport = true
-capabilities.textDocument.completion.completionItem.deprecatedSupport = true
-capabilities.textDocument.completion.completionItem.commitCharactersSupport =
-  true
-capabilities.textDocument.completion.completionItem.tagSupport = {
-  valueSet = { 1 },
-}
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  },
-}
 
 -- eslint
 vim.cmd(
