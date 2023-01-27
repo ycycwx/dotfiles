@@ -190,6 +190,10 @@ mason.setup_handlers({
         client.server_capabilities.documentFormattingProvider = false
         client.server_capabilities.documentRangeFormattingProvider = false
       end,
+      root_dir = function(name)
+        return lspconfig.util.root_pattern('.git')(name)
+            or lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(name)
+      end,
     })
   end,
 

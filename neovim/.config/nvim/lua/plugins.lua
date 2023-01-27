@@ -42,13 +42,6 @@ lazy.setup({
   },
 
   {
-    'nathom/filetype.nvim',
-    config = function()
-      require('core.filetype')
-    end,
-  },
-
-  {
     'nvim-tree/nvim-tree.lua',
     config = function()
       require('tool.tree')
