@@ -39,6 +39,7 @@ lazy.setup({
     config = function()
       require('core.which-key')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -47,6 +48,9 @@ lazy.setup({
       require('tool.tree')
     end,
     dependencies = { 'kyazdani42/nvim-web-devicons' },
+    keys = {
+      { '<leader><leader>', '<cmd>NvimTreeToggle<CR>', desc = 'Nvim Toggle' },
+    },
   },
 
   {
@@ -54,6 +58,9 @@ lazy.setup({
     config = function()
       require('tool.tmux')
     end,
+    event = 'VeryLazy',
+    -- TODO: check performance issue
+    enabled = false,
   },
 
   {
@@ -73,6 +80,7 @@ lazy.setup({
     config = function()
       require('interface.indent-blankline')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -80,6 +88,8 @@ lazy.setup({
     config = function()
       require('interface.illuminate')
     end,
+    -- TODO: has any more usage?
+    enabled = false,
   },
 
   {
@@ -115,6 +125,7 @@ lazy.setup({
       require('colorscheme.catppuccin')
     end,
     build = ':CatppuccinCompile',
+    event = 'VeryLazy',
   },
 
   {
@@ -122,6 +133,7 @@ lazy.setup({
     config = function()
       require('colorscheme.tokyonight')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -130,6 +142,7 @@ lazy.setup({
     config = function()
       require('colorscheme.rose-pine')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -137,6 +150,7 @@ lazy.setup({
     config = function()
       require('colorscheme.nightfox')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -144,6 +158,7 @@ lazy.setup({
     config = function()
       require('colorscheme.onedark')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -151,6 +166,7 @@ lazy.setup({
     config = function()
       require('colorscheme.gruvbox')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -162,6 +178,7 @@ lazy.setup({
       { 'nvim-lua/plenary.nvim' },
       { 'neovim/nvim-lspconfig' },
     },
+    event = 'VeryLazy',
   },
 
   {
@@ -181,7 +198,7 @@ lazy.setup({
       { 'kristijanhusak/vim-dadbod-completion' },
       { 'lukas-reineke/cmp-under-comparator' },
     },
-    event = 'VeryLazy',
+    event = 'InsertEnter',
   },
 
   {
@@ -189,6 +206,7 @@ lazy.setup({
     config = function()
       require('interface.lspkind')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -196,6 +214,7 @@ lazy.setup({
     config = function()
       require('interface.fidget')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -203,6 +222,7 @@ lazy.setup({
     config = function()
       require('interface.bqf')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -212,6 +232,7 @@ lazy.setup({
       require('edit.tabnine')
     end,
     dependencies = { 'hrsh7th/nvim-cmp' },
+    event = 'VeryLazy',
   },
 
   {
@@ -223,6 +244,7 @@ lazy.setup({
       { 'kyazdani42/nvim-web-devicons' },
       -- { 'ofseed/lualine-copilot' },
     },
+    event = 'VeryLazy',
   },
 
   {
@@ -235,6 +257,7 @@ lazy.setup({
       'SmiteshP/nvim-navic',
       'kyazdani42/nvim-web-devicons',
     },
+    event = 'VeryLazy',
   },
 
   {
@@ -243,6 +266,7 @@ lazy.setup({
       require('tool.gitsigns')
     end,
     dependencies = 'nvim-lua/plenary.nvim',
+    event = 'VeryLazy',
   },
 
   {
@@ -277,6 +301,7 @@ lazy.setup({
       require('efficiency.hop')
     end,
     branch = 'v2',
+    event = 'VeryLazy',
   },
 
   {
@@ -284,6 +309,7 @@ lazy.setup({
     config = function()
       require('efficiency.treehopper')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -301,14 +327,13 @@ lazy.setup({
     dependencies = {
       { 'nvim-lua/plenary.nvim' },
     },
+    event = 'VeryLazy',
   },
 
   {
     'dstein64/vim-startuptime',
     cmd = { 'StartupTime' },
   },
-
-  { 'kevinhwang91/vim-ibus-sw' },
 
   {
     'kylechui/nvim-surround',
@@ -333,6 +358,9 @@ lazy.setup({
       require('tool.toggleterm')
     end,
     version = 'v2.*',
+    keys = {
+      { '<leader>tt', '<cmd>ToggleTerm<CR>', desc = 'Toggle Term' },
+    },
   },
 
   {
@@ -345,7 +373,10 @@ lazy.setup({
     },
   },
 
-  { 'wakatime/vim-wakatime' },
+  {
+    'wakatime/vim-wakatime',
+    event = 'VeryLazy',
+  },
 
   { 'gpanders/editorconfig.nvim' },
 
@@ -354,6 +385,7 @@ lazy.setup({
     config = function()
       require('interface.notify')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -377,6 +409,7 @@ lazy.setup({
     config = function()
       require('core.project')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -385,6 +418,7 @@ lazy.setup({
       require('interface.bufferline')
     end,
     dependencies = { 'kyazdani42/nvim-web-devicons' },
+    event = 'VeryLazy',
   },
 
   {
@@ -400,6 +434,7 @@ lazy.setup({
       --   If not available, we use `mini` as the fallback
       'rcarriga/nvim-notify',
     },
+    event = 'VeryLazy',
   },
 
   {
@@ -407,6 +442,7 @@ lazy.setup({
     config = function()
       require('interface.dressing')
     end,
+    event = 'VeryLazy',
   },
 
   {
@@ -414,6 +450,7 @@ lazy.setup({
     config = function()
       require('interface.todo-comments')
     end,
+    event = 'VeryLazy',
   },
 
   {

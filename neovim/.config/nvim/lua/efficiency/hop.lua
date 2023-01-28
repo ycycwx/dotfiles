@@ -9,4 +9,5 @@ hop.setup({
   jump_on_sole_occurrence = false,
 })
 
-vim.keymap.set({ 'n', 'v', 'o' }, 'f', '<Cmd>HopPatternMW<CR>', { desc = 'Pattern' }) -- Case ignored
+-- disable shortcut
+-- vim.keymap.set({ 'n', 'v', 'o' }, 'f', '<Cmd>HopPatternMW<CR>', { desc = 'Pattern' }) -- Case ignored
