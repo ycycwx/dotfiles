@@ -106,6 +106,11 @@ gitsigns.setup({
     vim.keymap.set('n', '<leader>gp', gitsigns.preview_hunk, { buffer = bufnr, desc = 'Preview hunk' })
     vim.keymap.set('n', '<leader>gb', function()
       gitsigns.blame_line({ full = true })
+    end, { buffer = bufnr, desc = 'Blame lines' })
+
+    -- origin keybinding
+    vim.keymap.set('n', '<leader>bl', function()
+      gitsigns.blame_line({ full = false })
     end, { buffer = bufnr, desc = 'Blame line' })
 
     vim.keymap.set('n', '<leader>td', gitsigns.toggle_deleted, { buffer = bufnr, desc = 'Deleted' })
