@@ -211,10 +211,11 @@ lazy.setup({
 
   {
     'j-hui/fidget.nvim',
+    tag = 'legacy',
     config = function()
       require('interface.fidget')
     end,
-    event = 'VeryLazy',
+    event = 'LspAttach',
   },
 
   {
@@ -225,14 +226,18 @@ lazy.setup({
     event = 'VeryLazy',
   },
 
+  -- {
+  --   'tzachar/cmp-tabnine',
+  --   build = './install.sh',
+  --   config = function()
+  --     require('edit.tabnine')
+  --   end,
+  --   dependencies = { 'hrsh7th/nvim-cmp' },
+  --   event = 'VeryLazy',
+  -- },
+
   {
-    'tzachar/cmp-tabnine',
-    build = './install.sh',
-    config = function()
-      require('edit.tabnine')
-    end,
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    event = 'VeryLazy',
+    'github/copilot.vim',
   },
 
   {
