@@ -9,20 +9,24 @@
 -- vim.opt.list = true
 -- vim.opt.listchars:append('space:⋅')
 
-require('indent_blankline').setup({
-  char = '▏',
-  show_first_indent_level = false,
-  filetype_exclude = {
-    'help',
-    'git',
-    'markdown',
-    'text',
-    'terminal',
-    'lspinfo',
-    'packer',
+require('ibl').setup({
+  indent = { char = '▏' },
+  exclude = {
+    filetypes = {
+      'help',
+      'git',
+      'markdown',
+      'text',
+      'terminal',
+      'lspinfo',
+      'packer',
+    },
+    buftypes = {
+      'terminal',
+      'nofile',
+    }
   },
-  buftype_exclude = {
-    'terminal',
-    'nofile',
+  scope = {
+    show_start = false,
   },
 })
