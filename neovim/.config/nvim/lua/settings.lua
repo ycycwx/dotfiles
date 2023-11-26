@@ -8,7 +8,6 @@
 --local map = vim.api.nvim_set_keymap  -- set global keymap
 local cmd = vim.cmd -- execute Vim commands
 local exec = vim.api.nvim_exec -- execute Vimscript
-local fn = vim.fn -- call Vim functions
 local g = vim.g -- global variables
 local opt = vim.opt -- global/buffer/windows-scoped options
 
@@ -52,15 +51,12 @@ exec(
 -----------------------------------------------------------
 opt.hidden = true -- enable background buffers
 opt.history = 100 -- remember n lines in history
-opt.lazyredraw = true -- faster scrolling
 opt.synmaxcol = 240 -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
 opt.termguicolors = true -- enable 24-bit RGB colors
--- cmd [[colorscheme rose-pine]]
-cmd([[colorscheme monokai_soda]])
 
 -----------------------------------------------------------
 -- Tabs, indent
@@ -136,20 +132,3 @@ end
 
 -- disable nvim intro
 opt.shortmess:append('sI')
-
--- lsp
-vim.diagnostic.config({
-  -- virtual_text = false,
-  signs = true,
-  float = {
-    border = 'single',
-    format = function(diagnostic)
-      return string.format(
-        '%s (%s) [%s]',
-        diagnostic.message,
-        diagnostic.source,
-        diagnostic.code or diagnostic.user_data.lsp.code
-      )
-    end,
-  },
-})
