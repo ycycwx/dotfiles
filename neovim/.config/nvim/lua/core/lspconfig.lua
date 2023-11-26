@@ -171,8 +171,6 @@ mason.setup_handlers({
     lspconfig[server].setup(default)
   end,
 
-  clangd = function(server) end,
-
   rust_analyzer = function(server)
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
@@ -192,7 +190,7 @@ mason.setup_handlers({
       end,
       root_dir = function(name)
         return lspconfig.util.root_pattern('.git')(name)
-            or lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(name)
+          or lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(name)
       end,
     })
   end,
@@ -229,7 +227,15 @@ mason.setup_handlers({
 
   eslint = function(server)
     lspconfig.eslint.setup({
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        on_attach(client, bufnr)
+
+        -- client.server_capabilities.documentFormattingProvider = true
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          buffer = bufnr,
+          command = 'EslintFixAll',
+        })
+      end,
       capabilities = capabilities,
       flags = { debounce_text_changes = 150 },
     })
@@ -243,8 +249,3 @@ mason.setup_handlers({
     })
   end,
 })
-
--- eslint
-vim.cmd(
-  [[autocmd BufWritePre *.ts,*.tsx,*.mts,*.cts,*.js,*.jsx,*.mjs,*.cjs,*.vue,*.svelte if exists(':EslintFixAll') | EslintFixAll]]
-)

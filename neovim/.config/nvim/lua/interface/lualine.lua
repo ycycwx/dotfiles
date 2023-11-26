@@ -24,12 +24,8 @@ local function lsp()
     return ''
   end
   local names = {}
-  -- local ignored = { 'null-ls', 'copilot' }
-  local ignored = { 'null-ls' }
   for _, client in ipairs(clients) do
-    if not vim.tbl_contains(ignored, client.name) then
-      table.insert(names, client.name)
-    end
+    table.insert(names, client.name)
   end
   local msg = table.concat(names, ', ')
   if msg == '' then

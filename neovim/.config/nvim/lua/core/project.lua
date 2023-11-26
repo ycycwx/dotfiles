@@ -19,10 +19,6 @@ project.setup({
   -- detection_methods
   patterns = { '.git', 'Makefile', 'CMakeLists.txt', 'package.json' },
 
-  -- Table of lsp clients to ignore by name
-  -- eg: { "efm", ... }
-  ignore_lsp = { 'null-ls' },
-
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
   exclude_dirs = {},
