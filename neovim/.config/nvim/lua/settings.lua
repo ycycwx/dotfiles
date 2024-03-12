@@ -3,40 +3,31 @@
 -----------------------------------------------------------
 
 -----------------------------------------------------------
--- Neovim API aliases
------------------------------------------------------------
---local map = vim.api.nvim_set_keymap  -- set global keymap
-local cmd = vim.cmd -- execute Vim commands
-local exec = vim.api.nvim_exec -- execute Vimscript
-local g = vim.g -- global variables
-local opt = vim.opt -- global/buffer/windows-scoped options
-
------------------------------------------------------------
 -- General
 -----------------------------------------------------------
-g.mapleader = ',' -- change leader to a comma
-opt.mouse = 'a' -- enable mouse support
-opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
-opt.swapfile = false -- don't use swapfile
+vim.g.mapleader = ',' -- change leader to a comma
+vim.opt.mouse = 'a' -- enable mouse support
+vim.opt.clipboard = 'unnamedplus' -- copy/paste to system clipboard
+vim.opt.swapfile = false -- don't use swapfile
 
 -----------------------------------------------------------
 -- Neovim UI
 -----------------------------------------------------------
-opt.number = true -- show line number
-opt.showmatch = true -- highlight matching parenthesis
-opt.foldmethod = 'marker' -- enable folding (default 'foldmarker')
-opt.colorcolumn = '+1' -- line lenght marker according to editorconfig.max_line_length
-opt.splitright = true -- vertical split to the right
-opt.splitbelow = true -- orizontal split to the bottom
-opt.ignorecase = true -- ignore case letters when search
-opt.smartcase = true -- ignore lowercase for the whole pattern
-opt.linebreak = true -- wrap on word boundary
+vim.opt.number = true -- show line number
+vim.opt.showmatch = true -- highlight matching parenthesis
+vim.opt.foldmethod = 'marker' -- enable folding (default 'foldmarker')
+vim.opt.colorcolumn = '+1' -- line lenght marker according to editorconfig.max_line_length
+vim.opt.splitright = true -- vertical split to the right
+vim.opt.splitbelow = true -- orizontal split to the bottom
+vim.opt.ignorecase = true -- ignore case letters when search
+vim.opt.smartcase = true -- ignore lowercase for the whole pattern
+vim.opt.linebreak = true -- wrap on word boundary
 
 -- remove whitespace on save
-cmd([[au BufWritePre * :%s/\s\+$//e]])
+vim.cmd([[au BufWritePre * :%s/\s\+$//e]])
 
 -- highlight on yank
-exec(
+vim.api.nvim_exec(
   [[
   augroup YankHighlight
     autocmd!
@@ -49,53 +40,53 @@ exec(
 -----------------------------------------------------------
 -- Memory, CPU
 -----------------------------------------------------------
-opt.hidden = true -- enable background buffers
-opt.history = 100 -- remember n lines in history
-opt.synmaxcol = 240 -- max column for syntax highlight
+vim.opt.hidden = true -- enable background buffers
+vim.opt.history = 100 -- remember n lines in history
+vim.opt.synmaxcol = 240 -- max column for syntax highlight
 
 -----------------------------------------------------------
 -- Colorscheme
 -----------------------------------------------------------
-opt.termguicolors = true -- enable 24-bit RGB colors
+vim.opt.termguicolors = true -- enable 24-bit RGB colors
 
 -----------------------------------------------------------
 -- Tabs, indent
 -----------------------------------------------------------
-opt.expandtab = true -- use spaces instead of tabs
-opt.shiftwidth = 4 -- shift 4 spaces when tab
-opt.tabstop = 4 -- 1 tab == 4 spaces
-opt.smartindent = true -- autoindent new lines
+vim.opt.expandtab = true -- use spaces instead of tabs
+vim.opt.shiftwidth = 4 -- shift 4 spaces when tab
+vim.opt.tabstop = 4 -- 1 tab == 4 spaces
+vim.opt.smartindent = true -- autoindent new lines
 
 -- don't auto commenting new lines
-cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
+vim.cmd([[au BufEnter * set fo-=c fo-=r fo-=o]])
 
 -- remove line lenght marker for selected filetypes
-cmd([[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]])
+vim.cmd([[autocmd FileType text,markdown,html,xhtml,javascript setlocal cc=0]])
 
 -- 2 spaces for selected filetypes
-cmd([[
+vim.cmd([[
   autocmd FileType xml,html,xhtml,css,scss,lua,yaml setlocal shiftwidth=2 tabstop=2
 ]])
 
 -- mts cts TypeScript
-cmd([[autocmd BufNewFile,BufRead *.mts,*.cts setf typescript]])
+vim.cmd([[autocmd BufNewFile,BufRead *.mts,*.cts setf typescript]])
 
 -----------------------------------------------------------
 -- Autocompletion
 -----------------------------------------------------------
 -- insert mode completion options
-opt.completeopt = 'menu,menuone,noselect'
+vim.opt.completeopt = 'menu,menuone,noselect'
 
 -----------------------------------------------------------
 -- Terminal
 -----------------------------------------------------------
 -- open a terminal pane on the right using :Term
-cmd([[command Term :botright vsplit term://$SHELL]])
+vim.cmd([[command Term :botright vsplit term://$SHELL]])
 
 -- Terminal visual tweaks
 --- enter insert mode when switching to terminal
 --- close terminal buffer on process exit
-cmd([[
+vim.cmd([[
     autocmd TermOpen * setlocal listchars= nonumber norelativenumber nocursorline
     autocmd TermOpen * startinsert
     autocmd BufLeave term://* stopinsert
@@ -127,8 +118,8 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-  g['loaded_' .. plugin] = 1
+  vim.g['loaded_' .. plugin] = 1
 end
 
 -- disable nvim intro
-opt.shortmess:append('sI')
+vim.opt.shortmess:append('sI')
