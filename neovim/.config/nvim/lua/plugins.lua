@@ -457,10 +457,11 @@ lazy.setup({
   },
 
   {
-    'ahmedkhalf/project.nvim',
+    'ofseed/project.nvim',
     config = function()
       require('core.project')
     end,
+    main = 'project_nvim',
     event = 'VeryLazy',
   },
 
