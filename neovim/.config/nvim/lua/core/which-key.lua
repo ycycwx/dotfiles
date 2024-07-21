@@ -24,26 +24,16 @@ key.setup({
       g = true, -- bindings for prefixed with g
     },
   },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
-  operators = { gc = 'Comments' },
-  key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    -- ["<space>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
-  },
   icons = {
     breadcrumb = '»', -- symbol used in the command line area that shows your active key combo
     separator = '➜', -- symbol used between a key and it's label
     group = '+', -- symbol prepended to a group
   },
-  popup_mappings = {
+  keys = {
     scroll_down = '<c-d>', -- binding to scroll down inside the popup
     scroll_up = '<c-u>', -- binding to scroll up inside the popup
   },
-  window = {
+  win = {
     border = 'none', -- none, single, double, shadow
     position = 'bottom', -- bottom, top
     margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
@@ -56,61 +46,33 @@ key.setup({
     spacing = 3, -- spacing between columns
     align = 'left', -- align columns left, center or right
   },
-  ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = {
-    '<silent>',
-    '<cmd>',
-    '<Cmd>',
-    '<CR>',
-    'call',
-    'lua',
-    '^:',
-    '^ ',
-    '<Plug>',
-    'require',
-  }, -- hide mapping boilerplate
+  filter = function()
+    return false
+  end,
   show_help = true, -- show help message on the command line when the popup is visible
-  triggers = 'auto', -- automatically setup triggers
-  -- triggers = {"<leader>"} -- or specify a list manually
-  triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
-    i = { 'j', 'k' },
-    v = { 'j', 'k' },
+  triggers = {
+    { "<auto>", mode = "nxsot" },
   },
 })
 
-key.register({
-  ['['] = { name = '+prev' },
-  [']'] = { name = '+next' },
-  ['g'] = { name = '+goto' },
-  ['<leader>'] = {
-    name = '+<leader>',
-    ['<leader>'] = { name = '+<localleader>' },
-    ['f'] = {
-      name = '+find',
-      ['d'] = { name = '+debug' },
-    },
-    ['g'] = {
-      name = '+git',
-      ['d'] = { name = '+diffview' },
-    },
-    ['s'] = {
-      name = '+session',
-      ['c'] = { name = '+current' },
-    },
-    ['b'] = {
-      name = '+buffer',
-      ['s'] = { name = '+sort' },
-    },
-    ['l'] = {
-      name = '+lsp',
-      ['w'] = { name = '+workspace' },
-    },
-    ['r'] = { name = '+tasks' },
-    ['d'] = { name = '+debug' },
-    ['t'] = { name = '+toggle' },
-    ['o'] = { name = '+open' },
-  },
+key.add({
+  { '<leader>', group = '<leader>' },
+  { '<leader><leader>', group = '<localleader>' },
+  { '<leader>b', group = 'buffer' },
+  { '<leader>bs', group = 'sort' },
+  { '<leader>d', group = 'debug' },
+  { '<leader>f', group = 'find' },
+  { '<leader>fd', group = 'debug' },
+  { '<leader>g', group = 'git' },
+  { '<leader>gd', group = 'diffview' },
+  { '<leader>l', group = 'lsp' },
+  { '<leader>lw', group = 'workspace' },
+  { '<leader>o', group = 'open' },
+  { '<leader>r', group = 'tasks' },
+  { '<leader>s', group = 'session' },
+  { '<leader>sc', group = 'current' },
+  { '<leader>t', group = 'toggle' },
+  { '[', group = 'prev' },
+  { ']', group = 'next' },
+  { 'g', group = 'goto' },
 })
