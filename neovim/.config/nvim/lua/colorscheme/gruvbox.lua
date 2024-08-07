@@ -11,7 +11,7 @@ gruvbox.setup({
   italic = {
     strings = true,
     operators = true,
-    comments = true
+    comments = true,
   },
   strikethrough = true,
   invert_selection = false,
