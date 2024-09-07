@@ -179,8 +179,10 @@ mason.setup_handlers({
     })
   end,
 
+  -- TODO: Rename with ts_ls
+  -- @see https://github.com/williamboman/mason-lspconfig.nvim/pull/459
   tsserver = function()
-    lspconfig.tsserver.setup({
+    lspconfig.ts_ls.setup({
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
