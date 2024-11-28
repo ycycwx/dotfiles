@@ -446,7 +446,6 @@ lazy.setup({
     config = function()
       require('edit.snip')
     end,
-    enabled = false,
     event = 'VeryLazy',
   },
 
