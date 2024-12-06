@@ -1,6 +1,6 @@
 return {
-  "github/copilot.vim",
-  event = "VeryLazy",
+  'github/copilot.vim',
+  event = 'VeryLazy',
   init = function()
     -- vim.g.copilot_no_tab_map = true
   end,
@@ -11,11 +11,11 @@ return {
     }
 
     vim.keymap.set(
-      "i",
-      "<C-J>",
+      'i',
+      '<C-J>',
       'copilot#Accept("<CR>")',
       { silent = true, script = true, expr = true, replace_keycodes = false }
     )
-    vim.keymap.set("i", "<M-NL>", "<Cmd>Copilot<CR>")
+    vim.keymap.set('i', '<M-NL>', '<Cmd>Copilot<CR>')
   end,
 }

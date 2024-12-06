@@ -24,7 +24,7 @@ require('ibl').setup({
     buftypes = {
       'terminal',
       'nofile',
-    }
+    },
   },
   scope = {
     show_start = false,
