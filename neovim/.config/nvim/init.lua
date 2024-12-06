@@ -18,7 +18,7 @@ Website: https://github.com/brainfucksec/neovim-lua
 -----------------------------------------------------------
 require('settings')
 require('keymaps')
-require('plugins')
+require('manager')
 
 -- Load colorscheme after plugins are loaded
 -- Only the configuration started the second time takes effect for the bufferline
