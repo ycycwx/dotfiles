@@ -47,18 +47,6 @@ return {
   },
 
   {
-    'vuki656/package-info.nvim',
-    config = function()
-      require('tool.package-info')
-    end,
-    dependencies = 'MunifTanjim/nui.nvim',
-    event = {
-      'BufRead package.json',
-      'BufRead package-lock.json',
-    },
-  },
-
-  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     config = function()

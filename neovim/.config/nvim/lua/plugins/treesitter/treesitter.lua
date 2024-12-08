@@ -7,11 +7,12 @@ return {
     ensure_installed = 'all',
     highlight = {
       enable = true,
-      -- Should be controlled by vimtex
-      disable = { 'latex' },
     },
     indent = {
       enable = true,
     },
   },
+  config = function(_, opts)
+    require('nvim-treesitter.configs').setup(opts)
+  end,
 }
