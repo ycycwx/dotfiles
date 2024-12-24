@@ -203,14 +203,6 @@ return {
     event = 'LspAttach',
   },
 
-  {
-    'kevinhwang91/nvim-bqf',
-    config = function()
-      require('interface.bqf')
-    end,
-    event = 'VeryLazy',
-  },
-
   -- {
   --   'tzachar/cmp-tabnine',
   --   build = './install.sh',
