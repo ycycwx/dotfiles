@@ -1,25 +1,7 @@
---[[
+local custom = require('custom')
 
-  ███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗
-  ████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║
-  ██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║
-  ██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║
-  ██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║
-  ╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝
-
-
-Neovim init file
-Website: https://github.com/brainfucksec/neovim-lua
-
---]]
-
------------------------------------------------------------
--- Import Lua modules
------------------------------------------------------------
 require('settings')
 require('keymaps')
 require('manager')
 
--- Load colorscheme after plugins are loaded
--- Only the configuration started the second time takes effect for the bufferline
-vim.cmd.colorscheme('monokai_soda')
+vim.cmd.colorscheme(custom.theme)
