@@ -222,18 +222,6 @@ return {
   -- },
 
   {
-    'nvim-lualine/lualine.nvim',
-    config = function()
-      require('interface.lualine')
-    end,
-    dependencies = {
-      { 'kyazdani42/nvim-web-devicons' },
-      -- { 'ofseed/lualine-copilot' },
-    },
-    event = 'VeryLazy',
-  },
-
-  {
     'utilyre/barbecue.nvim',
     config = function()
       require('interface.barbecue')
