@@ -392,14 +392,6 @@ return {
   },
 
   {
-    'stevearc/dressing.nvim',
-    config = function()
-      require('interface.dressing')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'folke/todo-comments.nvim',
     config = function()
       require('interface.todo-comments')
