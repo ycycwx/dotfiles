@@ -358,15 +358,6 @@ return {
   },
 
   {
-    'ofseed/project.nvim',
-    config = function()
-      require('core.project')
-    end,
-    main = 'project_nvim',
-    event = 'VeryLazy',
-  },
-
-  {
     'akinsho/nvim-bufferline.lua',
     config = function()
       require('interface.bufferline')
