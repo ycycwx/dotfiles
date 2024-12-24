@@ -26,17 +26,6 @@ return {
   },
 
   {
-    'nvim-tree/nvim-tree.lua',
-    config = function()
-      require('tool.tree')
-    end,
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    keys = {
-      { '<leader><leader>', '<cmd>NvimTreeToggle<CR>', desc = 'Nvim Toggle' },
-    },
-  },
-
-  {
     'aserowy/tmux.nvim',
     config = function()
       require('tool.tmux')
