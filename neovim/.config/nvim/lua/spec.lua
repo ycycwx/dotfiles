@@ -289,16 +289,6 @@ return {
   },
 
   {
-    'stevearc/aerial.nvim',
-    config = function()
-      require('tool.aerial')
-    end,
-    keys = {
-      { '<leader>a', '<cmd>AerialToggle<CR>', desc = 'Outline' },
-    },
-  },
-
-  {
     'wakatime/vim-wakatime',
     event = 'VeryLazy',
   },
