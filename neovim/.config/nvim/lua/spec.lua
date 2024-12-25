@@ -221,17 +221,6 @@ return {
   },
 
   {
-    'Shatur/neovim-session-manager',
-    config = function()
-      require('efficiency.session-manager')
-    end,
-    dependencies = {
-      { 'nvim-lua/plenary.nvim' },
-    },
-    event = 'VeryLazy',
-  },
-
-  {
     'folke/trouble.nvim',
     dependencies = { 'kyazdani42/nvim-web-devicons' },
     config = function()
