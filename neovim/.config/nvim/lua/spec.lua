@@ -277,11 +277,6 @@ return {
     event = 'VeryLazy',
   },
 
-  {
-    'wakatime/vim-wakatime',
-    event = 'VeryLazy',
-  },
-
   { 'gpanders/editorconfig.nvim' },
 
   {
