@@ -26,16 +26,6 @@ return {
   },
 
   {
-    'aserowy/tmux.nvim',
-    config = function()
-      require('tool.tmux')
-    end,
-    event = 'VeryLazy',
-    -- TODO: check performance issue
-    enabled = false,
-  },
-
-  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     config = function()
