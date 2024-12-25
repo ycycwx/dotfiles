@@ -280,14 +280,6 @@ return {
   { 'gpanders/editorconfig.nvim' },
 
   {
-    'rcarriga/nvim-notify',
-    config = function()
-      require('interface.notify')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'L3MON4D3/LuaSnip',
     config = function()
       require('edit.snip')
@@ -300,22 +292,6 @@ return {
     config = function()
       require('edit.kommentary')
     end,
-    event = 'VeryLazy',
-  },
-
-  {
-    'folke/noice.nvim',
-    config = function()
-      require('interface.noice')
-    end,
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      'rcarriga/nvim-notify',
-    },
     event = 'VeryLazy',
   },
 
