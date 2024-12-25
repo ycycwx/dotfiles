@@ -193,13 +193,6 @@ return {
   },
 
   {
-    'goolord/alpha-nvim',
-    config = function()
-      require('interface.alpha')
-    end,
-  },
-
-  {
     'nvim-telescope/telescope.nvim',
     config = function()
       require('efficiency.telescope')
