@@ -309,15 +309,6 @@ return {
   },
 
   {
-    'akinsho/nvim-bufferline.lua',
-    config = function()
-      require('interface.bufferline')
-    end,
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    event = 'VeryLazy',
-  },
-
-  {
     'folke/noice.nvim',
     config = function()
       require('interface.noice')
