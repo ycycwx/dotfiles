@@ -14,6 +14,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 local lazy = require('lazy')
+local custom = require('custom')
 
 lazy.setup({
   spec = {
@@ -51,7 +52,7 @@ lazy.setup({
     -- a number <1 is a percentage., >1 is a fixed size
     size = { width = 0.8, height = 0.8 },
     -- The border to use for the UI window. Accepts same border values as |nvim_open_win()|.
-    border = 'rounded',
+    border = custom.border,
     icons = {
       cmd = ' ',
       config = '',

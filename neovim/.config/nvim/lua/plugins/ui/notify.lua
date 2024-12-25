@@ -1,3 +1,5 @@
+local custom = require('custom')
+
 return {
   'rcarriga/nvim-notify',
   event = 'VeryLazy',
@@ -29,7 +31,7 @@ return {
             height = state.message.height,
             col = vim.opt.columns:get(),
             row = next_row,
-            border = 'rounded',
+            border = custom.border,
             style = 'minimal',
           }
         end,

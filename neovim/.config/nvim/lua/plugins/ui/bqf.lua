@@ -1,3 +1,5 @@
+local custom = require('custom')
+
 return {
   'kevinhwang91/nvim-bqf',
   ft = 'qf',
@@ -9,7 +11,7 @@ return {
   opts = {
     auto_resize_height = true,
     preview = {
-      border = 'rounded',
+      border = custom.border,
       show_scroll_bar = false,
     },
   },

@@ -1,14 +1,16 @@
+local custom = require('custom')
+
 return {
   'stevearc/dressing.nvim',
   event = 'VeryLazy',
   opts = {
     input = {
-      border = 'rounded',
+      border = custom.border,
     },
     select = {
       backend = { 'fzf_lua', 'telescope', 'fzf', 'builtin', 'nui' },
       builtin = {
-        border = 'rounded',
+        border = custom.border,
       },
       fzf_lua = {
         winopts = {
