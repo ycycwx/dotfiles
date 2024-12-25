@@ -173,15 +173,6 @@ return {
     event = 'VeryLazy',
   },
 
-  {
-    'j-hui/fidget.nvim',
-    tag = 'legacy',
-    config = function()
-      require('interface.fidget')
-    end,
-    event = 'LspAttach',
-  },
-
   -- {
   --   'tzachar/cmp-tabnine',
   --   build = './install.sh',
