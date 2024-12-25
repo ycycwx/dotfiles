@@ -268,13 +268,6 @@ return {
   },
 
   {
-    'ethanholz/nvim-lastplace',
-    config = function()
-      require('efficiency.lastplace')
-    end,
-  },
-
-  {
     'Shatur/neovim-session-manager',
     config = function()
       require('efficiency.session-manager')
