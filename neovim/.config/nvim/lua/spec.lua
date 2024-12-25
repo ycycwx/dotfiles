@@ -257,14 +257,6 @@ return {
   },
 
   {
-    'folke/todo-comments.nvim',
-    config = function()
-      require('interface.todo-comments')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'b0o/SchemaStore.nvim',
     config = function()
       require('language.schema-store')
