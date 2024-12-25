@@ -165,14 +165,6 @@ return {
     event = 'InsertEnter',
   },
 
-  {
-    'onsails/lspkind-nvim',
-    config = function()
-      require('interface.lspkind')
-    end,
-    event = 'VeryLazy',
-  },
-
   -- {
   --   'tzachar/cmp-tabnine',
   --   build = './install.sh',
