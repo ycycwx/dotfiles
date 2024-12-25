@@ -278,17 +278,6 @@ return {
   },
 
   {
-    'akinsho/nvim-toggleterm.lua',
-    config = function()
-      require('tool.toggleterm')
-    end,
-    version = 'v2.*',
-    keys = {
-      { '<leader>tt', '<cmd>ToggleTerm<CR>', desc = 'Toggle Term' },
-    },
-  },
-
-  {
     'wakatime/vim-wakatime',
     event = 'VeryLazy',
   },
