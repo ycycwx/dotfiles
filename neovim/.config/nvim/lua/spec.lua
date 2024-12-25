@@ -184,19 +184,6 @@ return {
   -- },
 
   {
-    'utilyre/barbecue.nvim',
-    config = function()
-      require('interface.barbecue')
-    end,
-    dependencies = {
-      'neovim/nvim-lspconfig',
-      'SmiteshP/nvim-navic',
-      'kyazdani42/nvim-web-devicons',
-    },
-    event = 'VeryLazy',
-  },
-
-  {
     'lewis6991/gitsigns.nvim',
     config = function()
       require('tool.gitsigns')
