@@ -398,9 +398,4 @@ return {
       'jsonc',
     },
   },
-
-  {
-    'fladson/vim-kitty',
-    event = { 'BufRead kitty.conf' },
-  },
 }

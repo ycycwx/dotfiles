@@ -93,7 +93,7 @@ gitsigns.setup({
       gitsigns.blame_line({ full = false })
     end, { buffer = bufnr, desc = 'Blame line' })
 
-    vim.keymap.set('n', '<leader>td', gitsigns.toggle_deleted, { buffer = bufnr, desc = 'Deleted' })
+    vim.keymap.set('n', '<leader>tD', gitsigns.toggle_deleted, { buffer = bufnr, desc = 'Git deleted' })
     vim.keymap.set('n', '<leader>tb', gitsigns.toggle_current_line_blame, { buffer = bufnr, desc = 'Line Blame' })
 
     -- Text object
