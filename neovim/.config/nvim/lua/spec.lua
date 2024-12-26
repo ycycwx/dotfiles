@@ -11,15 +11,6 @@ return {
   },
 
   {
-    'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    config = function()
-      require('interface.indent-blankline')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'stevearc/conform.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
