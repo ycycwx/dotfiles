@@ -133,15 +133,4 @@ return {
     end,
     event = 'VeryLazy',
   },
-
-  {
-    'b0o/SchemaStore.nvim',
-    config = function()
-      require('language.schema-store')
-    end,
-    ft = {
-      'json',
-      'jsonc',
-    },
-  },
 }
