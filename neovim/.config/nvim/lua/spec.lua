@@ -162,14 +162,6 @@ return {
   },
 
   {
-    'b3nj5m1n/kommentary',
-    config = function()
-      require('edit.kommentary')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'iamcco/markdown-preview.nvim',
     build = 'cd app && npm install',
     init = function()
