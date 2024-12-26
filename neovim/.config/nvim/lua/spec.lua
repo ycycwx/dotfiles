@@ -11,13 +11,6 @@ return {
   },
 
   {
-    'williamboman/mason.nvim',
-    config = function()
-      require('core.mason')
-    end,
-  },
-
-  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     config = function()
