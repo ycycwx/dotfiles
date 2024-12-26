@@ -27,14 +27,6 @@ return {
   },
 
   {
-    'windwp/nvim-autopairs',
-    config = function()
-      require('edit.autopairs')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'stevearc/conform.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
