@@ -1,16 +1,5 @@
 return {
   {
-    'neovim/nvim-lspconfig',
-    config = function()
-      require('core.lspconfig')
-    end,
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-      'williamboman/mason.nvim',
-    },
-  },
-
-  {
     'stevearc/conform.nvim',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
