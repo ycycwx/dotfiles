@@ -18,14 +18,6 @@ return {
   },
 
   {
-    'folke/which-key.nvim',
-    config = function()
-      require('core.which-key')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     config = function()
