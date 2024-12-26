@@ -118,15 +118,6 @@ return {
   -- },
 
   {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require('tool.gitsigns')
-    end,
-    dependencies = 'nvim-lua/plenary.nvim',
-    event = 'VeryLazy',
-  },
-
-  {
     'nvim-telescope/telescope.nvim',
     config = function()
       require('efficiency.telescope')
