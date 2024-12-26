@@ -154,15 +154,6 @@ return {
   },
 
   {
-    'folke/trouble.nvim',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-    config = function()
-      require('tool.trouble')
-    end,
-    event = 'VeryLazy',
-  },
-
-  {
     'L3MON4D3/LuaSnip',
     config = function()
       require('edit.snip')
