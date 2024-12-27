@@ -1,4 +1,5 @@
 return {
+  { import = 'plugins.colorscheme' },
   { import = 'plugins.edit' },
   { import = 'plugins.efficiency' },
   { import = 'plugins.filetype' },
