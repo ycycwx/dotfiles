@@ -11,8 +11,7 @@ end
 local function lsp()
   local clients = vim.lsp.get_clients()
   local buf = vim.api.nvim_get_current_buf()
-  clients = vim
-    .iter(clients)
+  clients = vim.iter(clients)
     :filter(function(client)
       return client.attached_buffers[buf]
     end)

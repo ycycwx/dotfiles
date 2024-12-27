@@ -1,6 +1,6 @@
 local custom = require('custom')
 
-require('options');
+require('options')
 require('settings')
 require('keymaps')
 require('lsp')
