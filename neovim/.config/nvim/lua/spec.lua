@@ -71,15 +71,4 @@ return {
     },
     event = 'InsertEnter',
   },
-
-  {
-    'tzachar/cmp-tabnine',
-    enabled = false,
-    build = './install.sh',
-    config = function()
-      require('edit.tabnine')
-    end,
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    event = 'VeryLazy',
-  },
 }
