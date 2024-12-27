@@ -72,49 +72,14 @@ return {
     event = 'InsertEnter',
   },
 
-  -- {
-  --   'tzachar/cmp-tabnine',
-  --   build = './install.sh',
-  --   config = function()
-  --     require('edit.tabnine')
-  --   end,
-  --   dependencies = { 'hrsh7th/nvim-cmp' },
-  --   event = 'VeryLazy',
-  -- },
-
   {
-    'nvim-telescope/telescope.nvim',
+    'tzachar/cmp-tabnine',
+    enabled = false,
+    build = './install.sh',
     config = function()
-      require('efficiency.telescope')
+      require('edit.tabnine')
     end,
-    dependencies = {
-      { 'nvim-lua/popup.nvim' },
-      { 'nvim-lua/plenary.nvim' },
-      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-      { 'nvim-telescope/telescope-live-grep-args.nvim' },
-      { 'nvim-telescope/telescope-hop.nvim' },
-      { 'nvim-telescope/telescope-project.nvim' },
-      { 'nvim-telescope/telescope-media-files.nvim' },
-      { 'benfowler/telescope-luasnip.nvim' },
-    },
-    branch = '0.1.x',
-    event = 'VeryLazy',
-  },
-
-  {
-    'phaazon/hop.nvim',
-    config = function()
-      require('efficiency.hop')
-    end,
-    branch = 'v2',
-    event = 'VeryLazy',
-  },
-
-  {
-    'mfussenegger/nvim-treehopper',
-    config = function()
-      require('efficiency.treehopper')
-    end,
+    dependencies = { 'hrsh7th/nvim-cmp' },
     event = 'VeryLazy',
   },
 }
