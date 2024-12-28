@@ -4,7 +4,22 @@ return {
   'Saghen/blink.cmp',
   build = 'cargo build --release',
   opts = {
-    keymap = { preset = 'super-tab' },
+    keymap = {
+      -- @see https://cmp.saghen.dev/configuration/keymap.html#keymap
+      preset = 'default',
+      ['<CR>'] = { 'accept', 'fallback' },
+      ['<Tab>'] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        'snippet_forward',
+        'fallback',
+      },
+    },
     sources = {
       default = {
         'lsp',
