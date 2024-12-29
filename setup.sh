@@ -1,6 +1,7 @@
 #/bin/sh
 
+stow alacritty
+stow ghostty
+stow neovim
 stow prettier
 stow tmux
-stow neovim
-stow alacritty
