@@ -1,5 +1,7 @@
 return {
   'vuki656/package-info.nvim',
+  -- Disable plugin temporarily. @see: https://github.com/vuki656/package-info.nvim/issues/160
+  enabled = false,
   event = {
     'BufRead package.json',
     'BufRead package-lock.json',
