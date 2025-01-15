@@ -20,7 +20,6 @@ return {
           lspconfig[server].setup({ capabilities = capabilities })
         end,
 
-        rust_analyzer = function() end,
         jdtls = function() end,
 
         lua_ls = function()
