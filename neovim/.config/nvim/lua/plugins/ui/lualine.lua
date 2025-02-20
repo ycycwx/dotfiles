@@ -60,9 +60,6 @@ end
 
 return {
   'nvim-lualine/lualine.nvim',
-  init = function()
-    vim.o.laststatus = 0
-  end,
   event = 'VeryLazy',
   dependencies = {
     { 'nvim-tree/nvim-web-devicons' },
@@ -139,7 +136,7 @@ return {
         },
       },
       always_divide_middle = true,
-      globalstatus = false,
+      globalstatus = true,
       section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
     },
