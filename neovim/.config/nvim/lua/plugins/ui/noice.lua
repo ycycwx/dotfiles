@@ -67,7 +67,7 @@ return {
         enabled = false,
       },
       hover = {
-        silent = true,
+        enabled = false,
       },
     },
     views = {

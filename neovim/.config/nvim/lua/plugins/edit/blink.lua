@@ -2,7 +2,8 @@ local custom = require('custom')
 
 return {
   'Saghen/blink.cmp',
-  build = 'cargo build --release',
+  version = '*',
+  -- build = 'cargo build --release',
   opts = {
     keymap = {
       -- @see https://cmp.saghen.dev/configuration/keymap.html#keymap
@@ -45,7 +46,7 @@ return {
       list = {
         selection = {
           preselect = function(ctx)
-            return ctx.mode ~= 'cmdline'
+            return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
           end,
           auto_insert = function(ctx)
             return ctx.mode == 'cmdline'
@@ -79,6 +80,20 @@ return {
           border = 'rounded',
           winblend = vim.o.pumblend,
         },
+      },
+    },
+    cmdline = {
+      keymap = {
+        preset = 'enter',
+        ['<CR>'] = { 'accept_and_enter', 'fallback' },
+      },
+    },
+    signature = {
+      enabled = true,
+      window = {
+        show_documentation = true,
+        border = 'rounded',
+        winblend = vim.o.pumblend,
       },
     },
     appearance = {
