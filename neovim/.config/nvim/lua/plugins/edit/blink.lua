@@ -82,12 +82,13 @@ return {
         },
       },
     },
-    cmdline = {
-      keymap = {
-        preset = 'enter',
-        ['<CR>'] = { 'accept_and_enter', 'fallback' },
-      },
-    },
+    -- TODO: Disable auto complete temporarily when searching with `/`
+    -- cmdline = {
+    --   keymap = {
+    --     preset = 'enter',
+    --     ['<CR>'] = { 'accept_and_enter', 'fallback' },
+    --   },
+    -- },
     signature = {
       enabled = true,
       window = {
