@@ -3,20 +3,26 @@ return {
   event = 'VeryLazy',
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
-  opts = {
-    provider = 'copilot',
-    -- add any opts here
-    -- for example
-    -- provider = 'openai',
-    -- openai = {
-    --   endpoint = 'https://api.openai.com/v1',
-    --   model = 'gpt-4o', -- your desired model (or use gpt-4o, etc.)
-    --   timeout = 30000, -- timeout in milliseconds
-    --   temperature = 0, -- adjust if needed
-    --   max_tokens = 4096,
-    --   reasoning_effort = 'high', -- only supported for "o" models
-    -- },
-  },
+  config = function()
+    require('avante').setup({
+      provider = 'copilot',
+
+      behavior = {
+        enable_cursor_planning_mode = true,
+      },
+
+      custom_tools = {
+        require('mcphub.extensions.avante').mcp_tool(),
+      },
+
+      system_prompt = function()
+        local hub = require('mcphub').get_hub_instance()
+        if hub then
+          return hub:get_active_servers_prompt()
+        end
+      end,
+    })
+  end,
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
   -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
