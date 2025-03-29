@@ -2,6 +2,12 @@ local custom = require('custom')
 
 return {
   'ibhagwan/fzf-lua',
+  init = function()
+    vim.ui.select = function(...)
+      require('fzf-lua').register_ui_select()
+      vim.ui.select(...)
+    end
+  end,
   cmd = { 'FzfLua' },
   opts = {
     hls = {

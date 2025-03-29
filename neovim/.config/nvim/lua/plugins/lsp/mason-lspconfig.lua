@@ -1,5 +1,3 @@
-local capabilities = require('capabilities')
-
 return {
   'williamboman/mason-lspconfig.nvim',
   event = {
@@ -17,7 +15,7 @@ return {
     return {
       handlers = {
         function(server)
-          lspconfig[server].setup({ capabilities = capabilities })
+          lspconfig[server].setup({})
         end,
 
         jdtls = function() end,
@@ -27,7 +25,6 @@ return {
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
             end,
-            capabilities = capabilities,
             settings = {
               Lua = {
                 runtime = {
@@ -63,7 +60,6 @@ return {
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
             end,
-            capabilities = capabilities,
             settings = {
               gopls = {
                 hints = {
@@ -82,7 +78,6 @@ return {
 
         zls = function()
           lspconfig.zls.setup({
-            capabilities = capabilities,
             settings = {
               zls = {
                 inlay_hints_hide_redundant_param_names = true,
@@ -103,7 +98,6 @@ return {
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
             end,
-            capabilities = capabilities,
             settings = {
               vtsls = {
                 autoUseWorkspaceTsdk = true,
@@ -144,7 +138,6 @@ return {
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
             end,
-            capabilities = capabilities,
           })
         end,
 
@@ -159,13 +152,11 @@ return {
             on_attach = function(client)
               client.server_capabilities.documentFormattingProvider = false
             end,
-            capabilities = capabilities,
           })
         end,
 
         yamlls = function()
           lspconfig.yamlls.setup({
-            capabilities = capabilities,
             settings = {
               yaml = {
                 keyOrdering = false,
@@ -200,14 +191,12 @@ return {
                 command = 'EslintFixAll',
               })
             end,
-            capabilities = capabilities,
             flags = { debounce_text_changes = 150 },
           })
         end,
 
         ts_ls = function()
           lspconfig.ts_ls.setup({
-            capabilities = capabilities,
             root_dir = function(name)
               return lspconfig.util.root_pattern('.git')(name)
                 or lspconfig.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(name)
