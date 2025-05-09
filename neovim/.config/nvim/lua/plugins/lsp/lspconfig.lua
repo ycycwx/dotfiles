@@ -10,28 +10,6 @@ return {
   },
   config = function()
     require('lspconfig.ui.windows').default_options.border = custom.border
-    local lspconfig = require('lspconfig')
-
-    lspconfig.pyright.setup({
-      cmd = { 'delance-langserver', '--stdio' },
-      settings = {
-        python = {
-          analysis = {
-            typeCheckingMode = 'off',
-            inlayHints = {
-              callArgumentNames = 'partial',
-              functionReturnTypes = true,
-              pytestParameters = true,
-              variableTypes = true,
-            },
-          },
-        },
-      },
-    })
-
-    lspconfig.clangd.setup({
-      cmd = { 'clangd', '--header-insertion-decorators=0' },
-    })
   end,
   keys = {
     {
