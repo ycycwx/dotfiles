@@ -31,11 +31,5 @@ return {
         },
       },
     })
-    -- vim.lsp.config('ts_ls', {
-    --   root_dir = function(name)
-    --     return vim.lsp.util.root_pattern('.git')(name)
-    --       or vim.lsp.util.root_pattern('package.json', 'tsconfig.json', 'jsconfig.json')(name)
-    --   end,
-    -- })
   end,
 }
