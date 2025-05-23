@@ -1,3 +1,4 @@
+---@type LazyPluginSpec
 return {
   'mfussenegger/nvim-dap',
   init = function()
@@ -49,6 +50,21 @@ return {
       args = { '-i', 'dap' },
     }
 
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = '${port}',
+      executable = {
+        command = vim.fn.exepath('codelldb'),
+        args = {
+          '--port',
+          '${port}',
+          '--settings',
+          vim.json.encode({
+            showDisassembly = 'never',
+          }),
+        },
+      },
+    }
     vim
       .iter({
         {
@@ -61,6 +77,14 @@ return {
           args = {},
           console = 'integratedTerminal',
           preLaunchTask = 'C++ build single file',
+        },
+
+        {
+          name = 'LLDB: Attach to a running process',
+          type = 'codelldb',
+          request = 'attach',
+          pid = '${command:pickProcess}',
+          stopOnEntry = true,
         },
       })
       :map(function(configuration)
@@ -105,6 +129,27 @@ return {
         dap.configurations.zig = dap.configurations.zig or {}
         table.insert(dap.configurations.zig, configuration)
       end)
+
+    dap.adapters['pwa-node'] = {
+      type = 'server',
+      host = 'localhost',
+      port = '${port}',
+      executable = {
+        command = vim.fn.exepath('js-debug-adapter'),
+        args = { '${port}' },
+      },
+    }
+    for _, filetype in ipairs({ 'javascript', 'typescript' }) do
+      dap.configurations[filetype] = {
+        {
+          type = 'pwa-node',
+          request = 'launch',
+          name = 'Launch file',
+          program = '${file}',
+          cwd = '${workspaceFolder}',
+        },
+      }
+    end
 
     ---@diagnostic disable-next-line: undefined-field
     require('overseer').enable_dap(true)
@@ -175,6 +220,13 @@ return {
         require('dap').set_breakpoint(nil, nil, message)
       end,
       desc = 'Set log point',
+    },
+    {
+      '<leader>db',
+      function()
+        require('dap').list_breakpoints(true)
+      end,
+      desc = 'Open breakpoints',
     },
     {
       '<leader>dR',
