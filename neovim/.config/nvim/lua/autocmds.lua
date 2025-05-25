@@ -93,3 +93,12 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.bo.expandtab = false
   end,
 })
+
+vim.api.nvim_create_autocmd('BufWritePre', {
+  group = vim.api.nvim_create_augroup('eslint_format_on_save', {}),
+  callback = function()
+    if vim.fn.exists(':LspEslintFixAll') ~= 0 then
+      vim.cmd('LspEslintFixAll')
+    end
+  end,
+})
