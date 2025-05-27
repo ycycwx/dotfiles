@@ -124,6 +124,6 @@ vim.lsp.enable({
   'eslint',
   'lua_ls',
   'pyright',
-  'volar',
+  'vue_ls',
   'vtsls',
 })
