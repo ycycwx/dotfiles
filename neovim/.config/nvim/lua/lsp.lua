@@ -126,4 +126,5 @@ vim.lsp.enable({
   'pyright',
   'vue_ls',
   'vtsls',
+  'tailwindcss',
 })
