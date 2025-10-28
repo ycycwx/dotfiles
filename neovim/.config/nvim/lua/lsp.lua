@@ -135,6 +135,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 vim.lsp.enable({
   'eslint',
+  'oxlint',
   'lua_ls',
   'pyright',
   'vue_ls',
