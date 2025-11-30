@@ -5,5 +5,4 @@ return {
     'BufReadPost *.tsx',
     'BufReadPost *.jsx',
   },
-  opts = {}
 }
