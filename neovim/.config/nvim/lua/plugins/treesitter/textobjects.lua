@@ -27,7 +27,7 @@ return {
       {
         ';',
         function()
-          return ts.repeatable_move.repeat_last_move()
+          ts.repeatable_move.repeat_last_move()
         end,
         mode = { 'n', 'x', 'o' },
         desc = 'Next last move',
@@ -35,7 +35,7 @@ return {
       {
         ',',
         function()
-          return ts.repeatable_move.repeat_last_move_opposite()
+          ts.repeatable_move.repeat_last_move_opposite()
         end,
         mode = { 'n', 'x', 'o' },
         desc = 'Prev last move',
