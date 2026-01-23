@@ -1,7 +1,7 @@
 local M = {}
 
 -- Colorscheme
-M.theme = 'monokai-pro-classic'
+M.theme = 'monokai_soda'
 
 -- Border style of floating windows
 M.border = 'rounded'
