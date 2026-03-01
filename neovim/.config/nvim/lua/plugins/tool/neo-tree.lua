@@ -139,6 +139,12 @@ return {
       end,
     },
     filesystem = {
+      -- The file tree will always be bound to the current working directory.
+      bind_to_cwd = true,
+
+      -- The root of the file tree will be synced with the current working directory.
+      sync_root_with_cwd = true,
+
       group_empty_dirs = true,
       follow_current_file = {
         enabled = true,
