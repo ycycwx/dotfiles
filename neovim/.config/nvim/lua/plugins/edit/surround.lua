@@ -1,10 +1,9 @@
 return {
   'kylechui/nvim-surround',
   event = 'VeryLazy',
-  opts = {
-    keymaps = {
-      insert = false,
-      insert_line = false,
-    },
-  },
+  init = function()
+    -- Disable insert mode mappings from nvim-surround
+    vim.g.nvim_surround_no_insert_mappings = true
+  end,
+  opts = {},
 }
