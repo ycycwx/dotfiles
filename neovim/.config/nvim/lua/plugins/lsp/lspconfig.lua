@@ -3,7 +3,7 @@ local custom = require('custom')
 return {
   'neovim/nvim-lspconfig',
   event = {
-    'Filetype',
+    'FileType',
   },
   dependencies = {
     'folke/neoconf.nvim',
