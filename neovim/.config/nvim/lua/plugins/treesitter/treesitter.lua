@@ -30,28 +30,35 @@ return {
     end
 
     -- Enable Neovim's native treesitter highlighting for all supported filetypes
-    local function enable_ts_highlight(buf)
+    local function enable_ts_features(buf)
       buf = buf or vim.api.nvim_get_current_buf()
       local max_filesize = 100 * 1024 -- 100 KB
       local ok, stats = pcall(vim.uv.fs_stat, vim.api.nvim_buf_get_name(buf))
       if ok and stats and stats.size > max_filesize then
         return
       end
-      -- Use pcall to avoid errors if parser is not installed
-      pcall(vim.treesitter.start, buf)
+
+      -- 1. Highlighting
+      if pcall(vim.treesitter.start, buf) then
+        -- 2. Folds (Native Treesitter folding available in 0.10+)
+        vim.wo.foldmethod = 'expr'
+        vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- 3. Indentation (Provided by nvim-treesitter plugin)
+        vim.bo[buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
     end
 
     vim.api.nvim_create_autocmd('FileType', {
-      group = vim.api.nvim_create_augroup('treesitter_highlight', { clear = true }),
+      group = vim.api.nvim_create_augroup('treesitter_features', { clear = true }),
       callback = function(args)
-        enable_ts_highlight(args.buf)
+        enable_ts_features(args.buf)
       end,
     })
 
-    -- Manually trigger for currently open buffers since plugin might be lazy-loaded
+    -- Manually trigger for currently open buffers
     for _, buf in ipairs(vim.api.nvim_list_bufs()) do
       if vim.api.nvim_buf_is_loaded(buf) and vim.bo[buf].filetype ~= '' then
-        enable_ts_highlight(buf)
+        enable_ts_features(buf)
       end
     end
   end,

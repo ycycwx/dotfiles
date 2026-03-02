@@ -34,6 +34,10 @@ vim.o.smoothscroll = true
 vim.o.pumblend = 12
 vim.o.pumheight = 12
 vim.o.guifont = 'Cascadia Code NF:h12'
+vim.o.foldenable = true
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 -- Use vim.opt for complex types and methods to keep code clean
 vim.opt.completeopt = { 'menu', 'menuone', 'noinsert' }
