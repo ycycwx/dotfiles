@@ -5,6 +5,7 @@ return {
   config = function()
     -- Available styles: 'default', 'espresso', 'shusia', 'maia', 'atlantis', 'andromeda'
     vim.g.sonokai_style = 'atlantis'
+    vim.g.sonokai_background = 'hard'
     vim.g.sonokai_enable_italic = 1
     vim.g.sonokai_better_performance = 1
   end,
