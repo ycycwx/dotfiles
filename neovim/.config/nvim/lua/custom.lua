@@ -1,15 +1,7 @@
 local M = {}
 
--- Colorscheme
-M.theme = 'monokai-nightasty'
-
 -- Border style of floating windows
 M.border = 'rounded'
-
--- Width of side windows
-M.width = function()
-  return math.max(math.floor(vim.go.columns * 0.2), 30)
-end
 
 local append_space = function(icons)
   local result = {}

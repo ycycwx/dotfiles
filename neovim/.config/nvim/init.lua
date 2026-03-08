@@ -5,5 +5,4 @@ require('autocmds')
 require('lsp')
 require('manager')
 
-local custom = require('custom')
-vim.cmd.colorscheme(custom.theme)
+vim.cmd.colorscheme('monokai-nightasty')

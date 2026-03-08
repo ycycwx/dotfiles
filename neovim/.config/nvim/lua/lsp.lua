@@ -37,14 +37,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts, ...)
   return orig_util_open_floating_preview(contents, syntax, opts, ...)
 end
 
-vim.lsp.inlay_hint.enable()
-if vim.lsp.inline_completion then
-  vim.lsp.inline_completion.enable()
-end
-if vim.lsp.document_highlight then
-  vim.lsp.document_highlight.enable()
-end
-
 -- LspAttach events
 vim.api.nvim_create_autocmd('LspAttach', {
   desc = 'General LSP Attach',
@@ -133,6 +125,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
+vim.lsp.inlay_hint.enable()
+if vim.lsp.inline_completion then
+  vim.lsp.inline_completion.enable()
+end
+if vim.lsp.document_highlight then
+  vim.lsp.document_highlight.enable()
+end
 vim.lsp.enable({
   'eslint',
   'lua_ls',
