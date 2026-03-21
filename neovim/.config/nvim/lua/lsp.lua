@@ -133,9 +133,12 @@ if vim.lsp.document_highlight then
   vim.lsp.document_highlight.enable()
 end
 vim.lsp.enable({
+  'copilot',
   'cssls',
   'eslint',
   'lua_ls',
+  'gh_actions_ls',
+  'jsonls',
   'oxfmt',
   'oxlint',
   'pyright',

@@ -1,29 +1,8 @@
-local custom = require('custom')
-
 return {
   'stevearc/overseer.nvim',
   opts = function()
     return {
       dap = false,
-      form = {
-        border = custom.border,
-      },
-      confirm = {
-        border = custom.border,
-      },
-      task_win = {
-        border = custom.border,
-      },
-      component_aliases = {
-        default = {
-          { 'display_duration', detail_level = 2 },
-          'on_output_summarize',
-          'on_exit_set_status',
-          'on_complete_notify',
-          'on_complete_dispose',
-          'unique',
-        },
-      },
     }
   end,
   config = function(_, opts)
