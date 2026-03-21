@@ -133,7 +133,7 @@ if vim.lsp.document_highlight then
   vim.lsp.document_highlight.enable()
 end
 vim.lsp.enable({
-  'css',
+  'cssls',
   'eslint',
   'lua_ls',
   'oxfmt',
