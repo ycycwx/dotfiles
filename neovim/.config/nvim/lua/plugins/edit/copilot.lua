@@ -1,8 +1,5 @@
 return {
   'github/copilot.vim',
-  -- Keep the plugin spec around so it is easy to flip back if the 0.12 builtin
-  -- copilot LSP + inline completion flow is not good enough yet.
-  enabled = false,
   event = 'VeryLazy',
   init = function()
     -- vim.g.copilot_no_tab_map = true

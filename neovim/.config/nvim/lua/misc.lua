@@ -52,33 +52,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
       desc = 'Open diagnostic float',
     })
 
-    -- 0.12 exposes inline completion API but does not define a default accept key.
-    vim.keymap.set('i', '<C-J>', function()
-      if not (vim.lsp.inline_completion and vim.lsp.inline_completion.get) then
-        return '<C-J>'
-      end
-      if not vim.lsp.inline_completion.get() then
-        return '<C-J>'
-      end
-    end, {
-      expr = true,
-      buffer = bufnr,
-      desc = 'Accept the current inline completion',
-    })
   end,
 })
 
-if vim.lsp.codelens and vim.lsp.codelens.enable then
-  vim.lsp.codelens.enable()
-end
-if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
-  vim.lsp.inlay_hint.enable()
-end
-if vim.lsp.inline_completion and vim.lsp.inline_completion.enable then
-  vim.lsp.inline_completion.enable()
-end
+vim.lsp.codelens.enable()
+vim.lsp.inlay_hint.enable()
+-- Disabled while using `github/copilot.vim` to avoid duplicate ghost text and
+-- conflicting accept mappings with the builtin Copilot inline completion flow.
+-- vim.lsp.inline_completion.enable()
 vim.lsp.enable({
-  'copilot',
   'cssls',
   'eslint',
   'lua_ls',
