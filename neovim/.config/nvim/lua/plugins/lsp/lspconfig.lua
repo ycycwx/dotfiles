@@ -1,5 +1,4 @@
-local custom = require('custom')
-
+---@type LazyPluginSpec
 return {
   'neovim/nvim-lspconfig',
   event = {
@@ -9,22 +8,13 @@ return {
     'folke/neoconf.nvim',
   },
   config = function()
-    require('lspconfig.ui.windows').default_options.border = custom.border
+    -- Compatibility aliases for the pre-0.12 `:Lsp*` commands.
+    vim.api.nvim_create_user_command('LspInfo', function()
+      vim.cmd('checkhealth vim.lsp')
+    end, { desc = 'Alias to `:checkhealth vim.lsp`' })
+
+    vim.api.nvim_create_user_command('LspLog', function()
+      vim.cmd.edit(vim.lsp.log.get_filename())
+    end, { desc = 'Open the Nvim LSP client log' })
   end,
-  keys = {
-    {
-      '<leader>lR',
-      function()
-        vim.cmd.LspRestart()
-      end,
-      desc = 'Reload',
-    },
-    {
-      '<leader>lI',
-      function()
-        vim.cmd.LspInfo()
-      end,
-      desc = 'Info',
-    },
-  },
 }
