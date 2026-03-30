@@ -34,6 +34,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local bufnr = args.buf
 
     vim.keymap.set('i', '<C-J>', function()
+      if not (vim.lsp.inline_completion and vim.lsp.inline_completion.get) then
+        return '<C-J>'
+      end
       if not vim.lsp.inline_completion.get() then
         return '<C-J>'
       end
@@ -45,9 +48,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.lsp.codelens.enable()
-vim.lsp.inlay_hint.enable()
-vim.lsp.inline_completion.enable()
+if vim.lsp.codelens and vim.lsp.codelens.enable then
+  vim.lsp.codelens.enable()
+end
+if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
+  vim.lsp.inlay_hint.enable()
+end
+if vim.lsp.inline_completion and vim.lsp.inline_completion.enable then
+  vim.lsp.inline_completion.enable()
+end
 vim.lsp.enable({
   'copilot',
   'cssls',
