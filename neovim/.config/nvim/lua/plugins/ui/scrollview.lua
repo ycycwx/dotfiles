@@ -14,7 +14,6 @@ return {
       'blink-cmp-menu',
       'blink-cmp-documentation',
       'blink-cmp-signature',
-      'noice',
     },
     signs_on_startup = {
       'conflicts',

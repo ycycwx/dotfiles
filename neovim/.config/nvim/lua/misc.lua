@@ -147,3 +147,10 @@ vim.lsp.enable({
   'vtsls',
   'vue_ls',
 })
+
+do
+  local ok, ui2 = pcall(require, 'vim._core.ui2')
+  if ok and ui2 and ui2.enable then
+    pcall(ui2.enable, {})
+  end
+end

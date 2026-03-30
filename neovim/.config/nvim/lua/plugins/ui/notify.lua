@@ -3,6 +3,18 @@ local custom = require('custom')
 return {
   'rcarriga/nvim-notify',
   event = 'VeryLazy',
+  init = function()
+    local original_notify = vim.notify
+
+    vim.notify = function(...)
+      local ok, notify = pcall(require, 'notify')
+      if ok then
+        return notify(...)
+      end
+
+      return original_notify(...)
+    end
+  end,
   opts = function()
     local stages_util = require('notify.stages.util')
     local direction = stages_util.DIRECTION.BOTTOM_UP

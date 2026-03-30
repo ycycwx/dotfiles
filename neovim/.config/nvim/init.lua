@@ -1,8 +1,3 @@
-require('options')
-require('settings')
-require('keymaps')
-require('autocmds')
-require('lsp')
-require('manager')
+vim.loader.enable()
 
-vim.cmd.colorscheme('monokai-nightasty')
+require('init')
