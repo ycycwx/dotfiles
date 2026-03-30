@@ -29,10 +29,30 @@ vim.diagnostic.config({
 })
 
 vim.api.nvim_create_autocmd('LspAttach', {
-  desc = 'Accept inline completion',
+  desc = 'LSP buffer keymaps',
   callback = function(args)
     local bufnr = args.buf
 
+    -- 0.12 only provides `gri`/`grt` by default, so keep the old `gd`/`gD`/`gI` muscle memory.
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {
+      buffer = bufnr,
+      desc = 'Definition',
+    })
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, {
+      buffer = bufnr,
+      desc = 'Declaration',
+    })
+    vim.keymap.set('n', 'gI', vim.lsp.buf.implementation, {
+      buffer = bufnr,
+      desc = 'Implementation',
+    })
+    -- 0.12 default diagnostic float is `<C-W>d`; keep `ge` as a shorter alias.
+    vim.keymap.set('n', 'ge', vim.diagnostic.open_float, {
+      buffer = bufnr,
+      desc = 'Open diagnostic float',
+    })
+
+    -- 0.12 exposes inline completion API but does not define a default accept key.
     vim.keymap.set('i', '<C-J>', function()
       if not (vim.lsp.inline_completion and vim.lsp.inline_completion.get) then
         return '<C-J>'
