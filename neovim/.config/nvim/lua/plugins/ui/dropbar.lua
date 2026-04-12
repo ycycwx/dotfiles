@@ -7,6 +7,17 @@ return {
     'BufNewFile',
   },
   opts = {
+    bar = {
+      update_events = {
+        buf = {
+          'BufModifiedSet',
+          'FileChangedShellPost',
+          'TextChanged',
+          'ModeChanged',
+          'TextChangedT',
+        },
+      },
+    },
     icons = {
       kinds = {
         symbols = vim.tbl_extend('keep', { Folder = ' ' }, custom.icons.kind_with_space),
@@ -21,6 +32,11 @@ return {
           })
         end,
       },
+    },
+    terminal = {
+      name = function(buf)
+        return vim.b[buf].term_title or vim.fn.bufname(buf)
+      end,
     },
   },
 }
