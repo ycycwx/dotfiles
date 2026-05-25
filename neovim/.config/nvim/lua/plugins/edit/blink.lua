@@ -2,28 +2,20 @@ local custom = require('custom')
 
 return {
   'Saghen/blink.cmp',
+  event = { 'InsertEnter', 'CmdlineEnter' },
+  dependencies = { 'mayromr/blink-cmp-dap' },
   version = '*',
-  -- build = 'cargo build --release',
+  -- build = "cargo build --release",
+  ---@type blink.cmp.Config
   opts = {
     keymap = {
-      -- @see https://cmp.saghen.dev/configuration/keymap.html#keymap
-      preset = 'default',
-      ['<CR>'] = { 'accept', 'fallback' },
-      ['<Tab>'] = {
-        function(cmp)
-          if cmp.snippet_active() then
-            return cmp.accept()
-          else
-            return cmp.select_and_accept()
-          end
-        end,
-        'snippet_forward',
-        'fallback',
-      },
+      preset = 'enter',
     },
     sources = {
       default = {
         'lsp',
+        'dap',
+        'omni',
         'path',
         'snippets',
         'buffer',
@@ -40,6 +32,17 @@ return {
           name = 'Development',
           module = 'lazydev.integrations.blink',
         },
+        dap = {
+          name = 'dap',
+          module = 'blink-cmp-dap',
+        },
+        omni = {
+          enabled = function()
+            return vim.bo.omnifunc ~= 'v:lua.vim.lsp.omnifunc'
+              and vim.bo.omnifunc ~= 'v:lua.vim.lua_omnifunc'
+              and vim.bo.omnifunc ~= "v:lua.require'dap.repl'.omnifunc"
+          end,
+        },
       },
     },
     completion = {
@@ -47,9 +50,6 @@ return {
         selection = {
           preselect = function(ctx)
             return ctx.mode ~= 'cmdline' and not require('blink.cmp').snippet_active({ direction = 1 })
-          end,
-          auto_insert = function(ctx)
-            return ctx.mode == 'cmdline'
           end,
         },
       },

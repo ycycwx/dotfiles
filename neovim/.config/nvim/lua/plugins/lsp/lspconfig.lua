@@ -1,12 +1,6 @@
 ---@type LazyPluginSpec
 return {
   'neovim/nvim-lspconfig',
-  event = {
-    'FileType',
-  },
-  dependencies = {
-    'folke/neoconf.nvim',
-  },
   config = function()
     -- Compatibility aliases for the pre-0.12 `:Lsp*` commands.
     vim.api.nvim_create_user_command('LspInfo', function()
