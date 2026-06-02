@@ -60,7 +60,7 @@
   "package-info.nvim": { "branch": "master", "commit": "4f1b8287dde221153ec9f2acd46e8237d2d0881e" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "promise-async": { "branch": "main", "commit": "119e8961014c9bfaf1487bf3c2a393d254f337e2" },
-  "react-compiler-badge.nvim": { "branch": "main", "commit": "19a46092dce63114ec31c74ee5eeb0fce537bcaf" },
+  "react-compiler-badge.nvim": { "branch": "main", "commit": "3afccb1d26e50a49593931346f578d46662ad91e" },
   "render-markdown.nvim": { "branch": "main", "commit": "5adf0895310c1904e5abfaad40a2baad7fe44a07" },
   "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" },
   "sonokai": { "branch": "master", "commit": "b023c5280b16fe2366f5e779d8d2756b3e5ee9c3" },
