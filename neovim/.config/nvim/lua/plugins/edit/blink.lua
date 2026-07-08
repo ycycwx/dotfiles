@@ -10,6 +10,13 @@ return {
   opts = {
     keymap = {
       preset = 'super-tab',
+      -- Tab:   inside snippet → accept placeholder, then snippet_forward, fallback(indent)
+      --        menu visible   → select_and_accept, fallback
+      --        menu hidden    → fallback(indent)
+      -- Enter: menu visible   → accept, fallback(newline)
+      --        menu hidden    → fallback(newline)
+      -- C-y:   unmapped (overridden by super-tab, no conflict with C-j/Copilot)
+      ['<CR>'] = { 'accept', 'fallback' },
     },
     sources = {
       default = {
