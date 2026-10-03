@@ -51,7 +51,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
       buffer = bufnr,
       desc = 'Open diagnostic float',
     })
-
   end,
 })
 
