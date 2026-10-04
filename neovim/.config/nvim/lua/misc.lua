@@ -62,7 +62,7 @@ vim.lsp.inlay_hint.enable()
 vim.lsp.enable({
   'cssls',
   'eslint',
-  'lua_ls',
+  'emmylua_ls',
   'gh_actions_ls',
   'jsonls',
   'oxfmt',
