@@ -68,6 +68,7 @@ vim.lsp.enable({
   'oxfmt',
   'oxlint',
   'pyright',
+  'rust_analyzer',
   'svelte',
   'tailwindcss',
   'vtsls',
