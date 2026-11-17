@@ -14,8 +14,8 @@ vim.g.mapleader = ',' -- change leader to a comma
 -- vim.opt.foldmethod = 'marker' -- enable folding (default 'foldmarker')
 -- vim.opt.colorcolumn = '+1' -- line lenght marker according to editorconfig.max_line_length
 
--- remove whitespace on save
-vim.cmd([[au BufWritePre * :%s/\s\+$//e]])
+-- Preserve Markdown hard line breaks when removing trailing whitespace.
+vim.cmd([[au BufWritePre * if &filetype !=# 'markdown' | %s/\s\+$//e | endif]])
 
 -- highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {

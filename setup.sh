@@ -1,14 +1,14 @@
-#/bin/sh
+#!/bin/sh
+set -eu
 
-if ! command -v stow &> /dev/null
+cd -- "$(dirname -- "$0")"
+
+if ! command -v stow > /dev/null 2>&1
 then
     echo "stow could not be found, installing..."
     brew install stow
 fi
 
-stow alacritty
-stow ghostty
-stow mpv
-stow neovim
-stow prettier
-stow tmux
+set -- alacritty ghostty mpv neovim prettier tmux
+stow --simulate --target="$HOME" "$@"
+stow --target="$HOME" "$@"

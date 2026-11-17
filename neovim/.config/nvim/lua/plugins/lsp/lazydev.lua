@@ -21,12 +21,12 @@ return {
       end
 
       -- Disable if workspace.library is set.
-      local fd = vim.uv.fs_open(root_dir .. '/.luarc.json', 'r', 438)
-      if fd then
-        local luarc = vim.json.decode(assert(vim.uv.fs_read(fd, vim.uv.fs_fstat(fd).size)))
-        return not (luarc.workspace and luarc.workspace.library)
+      local readable, lines = pcall(vim.fn.readfile, root_dir .. '/.luarc.json')
+      if not readable then
+        return true
       end
-      return true
+      local decoded, luarc = pcall(vim.json.decode, table.concat(lines, '\n'))
+      return not (decoded and type(luarc) == 'table' and type(luarc.workspace) == 'table' and luarc.workspace.library)
     end,
   },
 }
